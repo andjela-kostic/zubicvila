@@ -82,4 +82,10 @@ zubi.addEventListener("mouseleave",function nazad(){
   zubi.src="img/1.jpg" 
 });
 
+$(document).ready(function(){ $('#scrollToTop a').
+ click( function(){
+ $.scrollTo(0,'slow'); return false;
+ }); }); 
+
+
 var galrij=["ordinacija1","ordinacija2","ordinacija3","ordinacija4","ordinacija5","ordinacija6","ordinacija7","ordinacija8","ordinacija9"]
