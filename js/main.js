@@ -1,4 +1,4 @@
-
+ 
 var el = document.getElementById("naslov");
 var le= document.getElementById("naslov");
 setInterval(function(){
@@ -57,7 +57,7 @@ function topFunction() {
 }
 
 var ikonice=["fa fa-phone",	"fa fa-clock-o","fa fa-envelope","fa fa-map-marker"];
-var sadrzaj=["060 939156","PON-PET: 08-20","zubicvila@gmail.com","Zdravka Čelara 16"];
+var sadrzaj=["060 939156","PON-PET: 08-20","zubicvila@gmail.com","Zdravka Čelara 16, </br>Beograd"];
 var beleska='';
 function Ispis(){
   var red=document.getElementById("vraper")
@@ -135,7 +135,7 @@ sakupljac+=`<div class="card col-lg-2 col-sm-5 col-9 m-2">
 }
 skladiste.innerHTML=sakupljac;
 
-var pitanja=["Uticaj genetike na nastanak i razvoj parodontopatije","Uzrok lošeg zadaha",]
+/*var pitanja=["Uticaj genetike na nastanak i razvoj parodontopatije","Uzrok lošeg zadaha",]
 var odgovori=["Genetika, naučno je potvrđeno, igra značajnu ulogu u nastanku i razvoju parodontopatije. Međutim, ona nije jedini uzročnik. Nepravilan položaj zuba, nedostatak pojedinih zuba, otežano ili loše održavanje oralne higijene su još neki od faktora koji doprinose parodontopatiji. Zavisno od faze u kojoj se nalazi, parodontopatija se može različito tretirati. Najbitinije je da se redovnim posetama stomatologu prati stanje i u skladu sa savetima stomatologa primenjuje adekvatna terapija.","Neprijatan zadah iz usta ili halitozu mogu da prouzrokuju mnogobrojni faktori kao što su odoriformna hrana, kariozni zubi, oboljenja desni, suvoća usta, pušenje cigareta, oboljenja sinusa ili disajnih puteva, određena opšta oboljenja, neadekvatna oralna higijena ili upotreba određenih lekova."];
 
 var red=document.getElementById("redovi")
@@ -151,7 +151,7 @@ for(let i=0;i<pitanja.length;i++){
           </div>
           `
         }
-red.innerHTML=hvatac;
+//red.innerHTML=hvatac;
 //$(".colaps").click(function () {
 
  /* $colaps = $(this);
@@ -188,3 +188,37 @@ $('.colaps').click(function(currentItem) {
   }
   lastItem = $(this);
 });*/
+$(document).ready(function(){
+  $('#posaljiPodatke').click(proveriFormu);
+ })
+ function proveriFormu(e){
+  e.preventDefault();
+  var tacnostForme = true;
+  var ime = document.getElementById('ime').value;
+  var prezime = document.getElementById('prezime').value;
+  var mejl = document.getElementById('mejl').value;
+  var message = document.getElementById('txtArea').value;
+  var imeGr = document.getElementById('greskaNaImenu');
+  var prezimeGr = document.getElementById('greskaNaPrezimenu');
+  var mejlGr = document.getElementById('greskaNaMejlu');
+  var tekstPorukaGr = document.getElementById('greskaNaTekstPoruka');
+  var regularniIme = /^[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}(\s[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}){0,1}$/;
+  var regularniPrezime = /^[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}(\s[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}){0,1}$/;
+  var regularniMejl = /^[a-zčćžđš][a-z\d\-\.\wčćžđš]+\@[a-z]+(\.[a-z]{2,12}){1,2}$/
+  var regularniMessage = /^[A-z\.\,\s\w\d\t\nčćžđš\/\@]+$/
+  function pokaziGresku(promenljiva, izraz, idPoruke){
+  if (!izraz.test(promenljiva)){
+    tacnostForme = false;
+    idPoruke.style.visibility = 'visible';
+  }
+  else {
+  idPoruke.style.visibility = 'hidden';
+  }
+  }
+ 
+  pokaziGresku(ime, regularniIme, imeGr);
+  pokaziGresku(prezime, regularniPrezime, prezimeGr);
+  pokaziGresku(mejl, regularniMejl, mejlGr);
+  pokaziGresku(message, regularniMessage, tekstPorukaGr)
+ }
+ 

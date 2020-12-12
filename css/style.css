@@ -92,7 +92,7 @@ html {
 }
 h3{
   font-family: 'Abril Fatface', cursive;
-  font-size: 3vw;
+  font-size: 5vw;
 }
 #opis{
   color:red;
@@ -141,4 +141,100 @@ h3{
 .container .content {
   display: none;
   padding : 5px;
+}
+
+
+.kontaktirajteNas {
+  background: rgb(154,200,32);
+  margin-bottom: 10%;;
+  display: flex;
+  box-orient: vertical;
+  box-direction: normal;
+  flex-direction: column;
+  box-pack: center;
+  justify-content: center;
+  box-align: center;
+  align-items: center;
+
+ }
+.kontaktirajteNas h3 {
+  color: ;
+  font-size: 2.5em;
+  text-align: center;
+ }
+ body .kontaktirajteNas form {
+  display: flex;
+  box-orient: vertical;
+  box-direction: normal;
+  flex-direction: column;
+  box-pack: center;
+  justify-content: center;
+  box-align: center;
+  align-items: center;
+  margin-top: 4%;
+  border: none;
+ }
+ body .kontaktirajteNas form p {
+  font-size: 1.13em;
+  font-weight: bold;
+  visibility: hidden;
+  text-align: center;
+ }
+ 
+ body .kontaktirajteNas form .popuniSirinu {
+  width: 70%;
+  padding: 1%;
+  border: 3px solid white;
+  background-color: transparent;
+  color: white;
+ }
+ body .kontaktirajteNas form .popuniSirinu::input-placeholder {
+  color: white;
+ }
+ body .kontaktirajteNas form .popuniSirinu:input-placeholder {
+
+  color: white;
+ }
+ body .kontaktirajteNas form .popuniSirinu::-ms-input-placeholder {
+  color: white;
+ }
+ body .kontaktirajteNas form .popuniSirinu::placeholder {
+  color: white;
+ }
+
+ body .kontaktirajteNas form #posaljiPodatke {
+  width: 25%;
+  padding: 1.3% 0%;
+  border: none;
+  background: white;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  -webkit-transition: 0.7s;
+
+  transition: 0.7s;
+ }
+ body .kontaktirajteNas form #posaljiPodatke:hover {
+  background: black;
+  color: white;
+ }
+ .belo{
+   width: 30%;
+   padding:2vw;
+   margin: 0px auto;
+   background-color: white;
+   border-radius: 0px 0px 40px 40px;
+ }
+
+.zeleno{
+  background-color: rgb(154,200,32);
+    width: 30%;
+   padding:2vw;
+   margin: 0px auto;
+   font-size: 5em;
+   border-radius: 0px 0px 40px 40px ;
+}
+.zeleno h3{
+  font-size: 3vw;
+  margin: 0px auto;
 }

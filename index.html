@@ -48,8 +48,10 @@
   <div id="galerija" class="row p-5">
       <h3 class="text-center">Naša ordinacija</h3>
   </div>
-</div>   
-<h3 class="text-center p-5">Naš tim</h3>
+</div>
+<div class="zeleno">  
+  <h3 class=" ">Naš tim</h3>
+</div> 
  <div class="container-fluid d-flex justify-content-around row p-5" id="nasTim">
  </div>
 
@@ -66,6 +68,26 @@
       </ul>
   </div>
 </div>-->
+
+<div class=" container-fluid kontaktirajteNas" id='kontaktirajteNas'>
+  <div class="belo"> 
+  <h3>Pišite nam</h3>
+</div>
+  <form action="index.html" method='POST' class="col-md-8 col-11">
+    <input type="text" placeholder="Vaše ime" class='popuniSirinu' id="ime" name='name'/>
+    <p class='greska' id='greskaNaImenu'>Niste pravilno uneli ime (prvo slovo mora biti veliko).</p>
+    <input type="text" placeholder="Vaše prezime" class='popuniSirinu' id="prezime" name='surname'/>
+    <p class='greska' id='greskaNaPrezimenu'>Niste pravilno uneli prezime (prvo slovo mora biti veliko).</p>
+    <input type="email" placeholder="Vaš e-mail" class='popuniSirinu' id="mejl" name='mail'/>
+    <p class='greska' id='greskaNaMejlu'>Niste uneli Vaš e-mail u pravilnom formatu.</p>
+    <textarea class='popuniSirinu' name="txtArea" placeholder="Vaša poruka" id="txtArea" cols="30" rows="10"></textarea>
+    <p class='greska' id='greskaNaTekstPoruka'>Niste ništa uneli.</p>
+    <input type="submit" value='Pošalji' id='posaljiPodatke'/>
+    <p id='nijeGreska'>Vaša poruka je poslata !<br/>Javićemo Vam se uskoro.</p>
+  </form>
+</div>
+
+
  
     <button onclick="topFunction()" id="myBtnn" title="Go to top">Top</button>
     <script src="js/jquery-3.5.1.min.js"></script> 
