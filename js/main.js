@@ -11,7 +11,6 @@ setInterval(function(){
 var navigate=document.getElementById("navigacija");
 var navBar=`<ul>`;
 var navNiz=["Home","About us","Galery","What we provide","Contact"];
-navBar+='<img src="img/icon.png" alt="logo"/>'
 for(let i=0;i<navNiz.length;i++){
     navBar+=`<li><a href="">${navNiz[i]}</a></li>`;
 }
@@ -135,59 +134,6 @@ sakupljac+=`<div class="card col-lg-2 col-sm-5 col-9 m-2">
 }
 skladiste.innerHTML=sakupljac;
 
-/*var pitanja=["Uticaj genetike na nastanak i razvoj parodontopatije","Uzrok lošeg zadaha",]
-var odgovori=["Genetika, naučno je potvrđeno, igra značajnu ulogu u nastanku i razvoju parodontopatije. Međutim, ona nije jedini uzročnik. Nepravilan položaj zuba, nedostatak pojedinih zuba, otežano ili loše održavanje oralne higijene su još neki od faktora koji doprinose parodontopatiji. Zavisno od faze u kojoj se nalazi, parodontopatija se može različito tretirati. Najbitinije je da se redovnim posetama stomatologu prati stanje i u skladu sa savetima stomatologa primenjuje adekvatna terapija.","Neprijatan zadah iz usta ili halitozu mogu da prouzrokuju mnogobrojni faktori kao što su odoriformna hrana, kariozni zubi, oboljenja desni, suvoća usta, pušenje cigareta, oboljenja sinusa ili disajnih puteva, određena opšta oboljenja, neadekvatna oralna higijena ili upotreba određenih lekova."];
-
-var red=document.getElementById("redovi")
-var hvatac='';
-
-for(let i=0;i<pitanja.length;i++){
-  hvatac+=`<div class="colaps bg-danger">
-              <h5>${pitanja[i]}</h5>
-              <span>+</span>
-          </div>
-          <div class="content">
-              <p>${odgovori[i]}</p>
-          </div>
-          `
-        }
-//red.innerHTML=hvatac;
-//$(".colaps").click(function () {
-
- /* $colaps = $(this);
-  //getting the next element
-  $content = $colaps.next();
-  //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-  $content.slideToggle(500, function () {
-      //execute this after slideToggle is done
-      //change text of header based on visibility of content div
-      $colaps.text(function () {
-          //change text based on condition
-          return $content.is(":visible") ? "" : "";
-      });
-  });
-
-});*/
-
-/*$('.colaps').hover(function() {
-  $(this).toggleClass('hover');
-});
-
-var lastItem;
-
-$('.colaps').click(function(currentItem) {
-  var currentItem = $(this);
-  if ($(this).next().height() == 0) {
-      $(lastItem).css({'font-weight':'normal'});
-      $(lastItem).next().animate({height: '0px'},400,'swing');
-      $(this).css({'font-weight':'bold'});
-      $(this).next().animate({height: '250px',opacity: 1},400,'swing');
-  } else {
-      $(this).css({'font-weight':'normal'});
-      $(this).next().animate({height: '0px',opacity: 1},400,'swing');
-  }
-  lastItem = $(this);
-});*/
 $(document).ready(function(){
   $('#posaljiPodatke').click(proveriFormu);
  })
@@ -213,7 +159,7 @@ $(document).ready(function(){
   }
   else {
   idPoruke.style.visibility = 'hidden';
-  }
+    }
   }
  
   pokaziGresku(ime, regularniIme, imeGr);
@@ -222,3 +168,31 @@ $(document).ready(function(){
   pokaziGresku(message, regularniMessage, tekstPorukaGr)
  }
  
+var pitanjaPacijenata=["Zašto zub boli?","Zašto krvare desni?","Šta je paradontopatija i kako se leči?","Zašto smo baš mi najbolji izbor za vas?"];
+var odgovoriDoktora=["Uzroci zubobolje su mnogobrojni. Najčešće su to stare plombe, neprepoznat karijes ispod kontaktne tačke dva zuba i ogoljen vrat zuba prilikom povlačenja desni. Posledica svega navedenog je eksponirani dentin koji preko tubula prenosi nadražaje do pulpe pri čemu se javlja bolna senzacija.","Glavni uzrok krvarenja desni je upala desni koja je posledica skupljanja naslaga na zubima. Krvarenje desni i prisustvo parodontalnih džepova je jedan od prvih znakova parodontopatije. Redovne posete vašem stomatologu i uklanjanje kamenca i naslaga na zubima će pozitivno uticati na stanje vaših desni i zaustaviti progresiju parodontopatije.","Parodontopatija je progresivna bolest desni gde dolazi do povlačenja desni i same kosti oko korena zuba što za posledicu ima stvaranje džepova, klaćenje zuba i na kraju ispadanje. Parodontopatija se ne može izlečiti ali se njen tok može usporiti ili privremeno zaustaviti. Redovne posete i slušanje saveta stomatologa će sačuvati vaše zube.","Ordinaciju Profident čini tim stručnjaka specijalizovanih za sve grane stomatologije (oralne hirurgije, stomatološke protetike, endodoncije, parodontologije, implantologije, dečije i preventivne stomatologije). Savremenim pristupom lečenja i korišćenjem najmodernijh materijala postizemo najbolje moguće rezultate. U prilog tome govori i 20 godina radnog iskustva iza nas."];
+var akordion=document.getElementById("accordionDiv");
+var hvatacAkordiona=`<h3 class="text-center m-5 p-3">Najčešća pitanja pacijenata</h3>`;
+
+function izvrsiAkordion(){
+for(let i=0;i<pitanjaPacijenata.length;i++){
+  hvatacAkordiona+=`<div class="accordion">
+                      <div class="head d-flex justify-content-between">
+                        <h2>${i+1}. ${pitanjaPacijenata[i]}</h2>
+                        <i class="fa fa-arrow-right arrow"></i>
+                      </div>
+                      <div class="content">
+                        <p> ${odgovoriDoktora[i]}</p>
+                      </div>
+                    </div>
+                  <br>              
+  `
+  console.log(hvatacAkordiona)
+}
+akordion.innerHTML=hvatacAkordiona;
+$('.head').click(function(){
+  $(this).toggleClass('active');
+  $(this).parent().find('.arrow').toggleClass('arrow-animate');
+  $(this).parent().find('.content').slideToggle(280);
+});
+}
+izvrsiAkordion()

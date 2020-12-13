@@ -14,20 +14,24 @@
     <title>OLA</title>
 </head>
 <body>
-  <!-----O nama,galerija,nas tim,cenovnik,najcesca pitanja-->
+<!---Navigacija--->
   <nav class="container navigationBar site-navbar banner" id="navigacija">        
      <div class="burger">
          <span class="icon-menu h3">
       </div>
   </nav>
+<!---Header--->
   <header>      
     <div id="h" class="col lg-4  ">
       <h1 id="naslov" class="text-center primary text-light"> </h1>
     </div>
   </header>
+<!---O nama--->
   <div class="container-fluid">
+<!--Kontakt--->
     <div class="row" id="vraper">
     </div>
+<!--Deo o nama-->
     <div id="oNama" class="row justify-content-md-center p-5">
       <div class="col-md-6">
         <h3 class="col-md-12  text-left">Dobrodošli na sajt stomatološke ordinacije Zubić vila</h3>
@@ -43,49 +47,40 @@
       </div>
     </div>   
   </div>  
+<!---Galerija--->
   <div id="okvir" class="container-fluid">
-    <h3 id="nasaO"class="text-center p-3">Naša ordinacija</h3>  
-  <div id="galerija" class="row p-5">
-      <h3 class="text-center">Naša ordinacija</h3>
+    <h3 id="nasaO" class="text-center p-3">Naša ordinacija</h3>  
+    <div id="galerija" class="row p-5">
+    </div>
   </div>
-</div>
-<div class="zeleno">  
-  <h3 class=" ">Naš tim</h3>
-</div> 
- <div class="container-fluid d-flex justify-content-around row p-5" id="nasTim">
- </div>
-
- <!---<div class="container" id="redovi">
-  <div class="colaps bg-danger"><span>+</span>
-
+<!---Nas tim--->
+  <div class="zeleno">  
+    <h3 class=" ">Naš tim</h3>
+  </div> 
+  <div class="container-fluid d-flex justify-content-around row p-5" id="nasTim">
   </div>
-  <div class="content">
-      <ul>
-          <li>This is just some random content.</li>
-          <li>This is just some random content.</li>
-          <li>This is just some random content.</li>
-          <li>This is just some random content.</li>
-      </ul>
+<!--Pitanja pacijenata-->
+  <div id="accordionDiv" class="container">
   </div>
-</div>-->
 
-<div class=" container-fluid kontaktirajteNas" id='kontaktirajteNas'>
-  <div class="belo"> 
-  <h3>Pišite nam</h3>
-</div>
-  <form action="index.html" method='POST' class="col-md-8 col-11">
-    <input type="text" placeholder="Vaše ime" class='popuniSirinu' id="ime" name='name'/>
-    <p class='greska' id='greskaNaImenu'>Niste pravilno uneli ime (prvo slovo mora biti veliko).</p>
-    <input type="text" placeholder="Vaše prezime" class='popuniSirinu' id="prezime" name='surname'/>
-    <p class='greska' id='greskaNaPrezimenu'>Niste pravilno uneli prezime (prvo slovo mora biti veliko).</p>
-    <input type="email" placeholder="Vaš e-mail" class='popuniSirinu' id="mejl" name='mail'/>
-    <p class='greska' id='greskaNaMejlu'>Niste uneli Vaš e-mail u pravilnom formatu.</p>
-    <textarea class='popuniSirinu' name="txtArea" placeholder="Vaša poruka" id="txtArea" cols="30" rows="10"></textarea>
-    <p class='greska' id='greskaNaTekstPoruka'>Niste ništa uneli.</p>
-    <input type="submit" value='Pošalji' id='posaljiPodatke'/>
-    <p id='nijeGreska'>Vaša poruka je poslata !<br/>Javićemo Vam se uskoro.</p>
-  </form>
-</div>
+<!--Kontakt Forma-->
+  <div class=" container-fluid kontaktirajteNas mt-5" id='kontaktirajteNas'>
+    <div class="belo"> 
+      <h3>Pišite nam</h3>
+    </div>
+    <form action="index.html" method='POST' class="col-md-8 col-11">
+      <input type="text" placeholder="Vaše ime" class='popuniSirinu' id="ime" name='name'/>
+      <p class='greska' id='greskaNaImenu'>Niste pravilno uneli ime (prvo slovo mora biti veliko).</p>
+      <input type="text" placeholder="Vaše prezime" class='popuniSirinu' id="prezime" name='surname'/>
+      <p class='greska' id='greskaNaPrezimenu'>Niste pravilno uneli prezime (prvo slovo mora biti veliko).</p>
+      <input type="email" placeholder="Vaš e-mail" class='popuniSirinu' id="mejl" name='mail'/>
+      <p class='greska' id='greskaNaMejlu'>Niste uneli Vaš e-mail u pravilnom formatu.</p>
+      <textarea class='popuniSirinu' name="txtArea" placeholder="Vaša poruka" id="txtArea" cols="30" rows="10"></textarea>
+      <p class='greska' id='greskaNaTekstPoruka'>Niste ništa uneli.</p>
+      <input type="submit" value='Pošalji' id='posaljiPodatke'/>
+      <p id='nijeGreska'>Vaša poruka je poslata !<br/>Javićemo Vam se uskoro.</p>
+    </form>
+  </div>
 
 
  
