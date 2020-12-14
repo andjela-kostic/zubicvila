@@ -9,10 +9,11 @@ setInterval(function(){
 },5000); 
 
 var navigate=document.getElementById("navigacija");
-var navBar=`<ul>`;
-var navNiz=["Home","About us","Galery","What we provide","Contact"];
+var navBar=`<ul class="text-center">`;
+var navNiz=["O nama","Galerija","Naš tim","Cenovnik","Kontakt"];
+var linkovi=["#oNama","#okvir","#tim","#cenIkom","#kontaktirajteNas"]
 for(let i=0;i<navNiz.length;i++){
-    navBar+=`<li><a href="">${navNiz[i]}</a></li>`;
+    navBar+=`<li><a href="${linkovi[i]}" target="_self">${navNiz[i]}</a></li>`;
 }
 navBar+=`</ul>`;
 navigate.innerHTML=navBar;
@@ -196,3 +197,48 @@ $('.head').click(function(){
 });
 }
 izvrsiAkordion()
+
+var usluge=["Stomatološki pregled","Prva pomoć","Kompozitni ispun","Terapija dubokog karijesa","Vitalna ekstirpacija","Lečenje gangrene (1 seansa)","Helio nadogradnja","Izbeljivanje zuba laserom BIOLASE","Izbeljivanje avitalnog zuba","Izbeljivanje zuba trejom (kućna varijanta)","Izbeljivanje u ordinaciji","Rutinsko vađenje zuba","Komplikovano vađenje zuba","Implantat","Obrada parodontalnog džepa"]
+var cene=["1.000","1.500","3.000","1.700","2.200","1.500","5.500","35.000","6.600","10.000","23.000","2.400","6.000","64.000","1.700"]
+var cenovnik=document.getElementById("cenovnik");
+var hvatacTabele=`<table>
+                    <thead>
+                      <tr>
+                        <th>Cenovnik</th>
+                      </tr>
+                    </thead>
+                  <tbody>`;
+
+for(let i=0;i<usluge.length;i++){
+  hvatacTabele+=`
+                 <tr>
+                    <td>${usluge[i]}</td>
+                    <td class="desno"><span>${cene[i]}</span></td>
+                 </tr> `
+}
+hvatacTabele+=`   </tbody>
+                </table>`
+cenovnik.innerHTML=hvatacTabele;
+
+
+var pacijenti=['PROFILE1.jpg','PROFILE2.jpg','PROFILE3.jpg'];
+var komentari=[' Bila sam prestravljena od zubnih implanta, ali ni jednog trenutka nisam osetila nelagodnost. Cela ordinacija je bila veoma profesionalna i prijateljska.','Hvala vam što tako dobro vodite računa o mojim zubima! Ne mogu vam opisati koliko je moje samopouzdanje poraslo od kako sam brigu o mojim zubima poverio baš vama. Želim vam što više uspeha i u daljem radu.','Imam divno iskustvo sa dr Markom i celim osobljem. Odlično su mi objasnili proceduru i imali su vremena da odgovore na sva moja postavljena pitanja. Toplo preporučujem Eurodent! Beskrajno vam hvala!']
+var divKomentara=document.getElementById("komentari")
+var hvatacKom='';
+
+for(let i=0;i<pacijenti.length;i++){
+    hvatacKom+=`
+                <div class=" d-flex justify-content-between shadow-sm p-3 mb-5 bg-white rounded">
+                    <div class="col md-2 col-6">
+                      <img src="img/${pacijenti[i]}" alt="pacijent${i}" class="pPacijenta img-fluid rounded-circle"/>
+                    </div>
+                      <p>${komentari[i]}</p>
+                    
+                </div>
+               
+    `
+} 
+divKomentara.innerHTML=hvatacKom;
+
+ 
+

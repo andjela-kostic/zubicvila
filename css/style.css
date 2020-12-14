@@ -3,7 +3,6 @@
      padding: 0px;
      font-family: 'Titillium Web', sans-serif;
 }
-
 html {
    scroll-behavior: smooth;
  }
@@ -11,13 +10,13 @@ body{
   background-color: #d3e3b6;
 }
  header{
-     background-image: url('../img/naslovna.jpg');
-     height: 44vw;
-     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.9;
-    
+  background-image: url('../img/naslovna.jpg');
+  height: 44vw;
+  background-attachment: fixed;
+  background-position:top
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
  }
  li{
   margin: auto;
@@ -47,6 +46,7 @@ body{
     line-height: 1.4em;
     }
     ul {
+      margin: 0px auto;
     display: flex;
     justify-content: space-around;
     width: 90%;
@@ -57,7 +57,7 @@ body{
    ul li a {
     margin-left: 15px;
     margin-right: 15px;
-    
+    color: #111111;
     font-size: 2vw;
     }
 
@@ -288,4 +288,52 @@ h3{
   padding: 2vw 2vw;
   color: #333333;
 }
+ table{
+   width: 90%;
+ }
+tbody{
+  border: 0.2vw solid;
 
+}
+td{
+  font-size: 1.4rem;
+  padding: 1vw;
+}
+thead tr th{
+  font-size: 2rem;
+}
+tr {
+  margin:5px;
+  border-bottom: 1px dotted;
+}
+.desno{
+  float:right;
+}
+.desno span{
+  background-color: chartreuse;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 0.1wv;
+  margin-top: 0.2wv;
+}
+
+#cenIkom{
+  margin:10% 0%;
+}
+.pPacijenta{
+  width: 6wv;
+  height: auto;
+}
+
+.kPacijenta{
+  float:right;
+  
+  background-color: bisque;
+}
+.slikap{
+  background-color: chartreuse;
+}
+hr{
+  text-shadow: 2px 2px black;
+}
