@@ -9,25 +9,33 @@ var navNiz=["O nama","Galerija","Naš tim","Cenovnik","Kontakt"];
 var linkovi=["#oNama","#okvir","#tim","#cenIkom","#kontaktirajteNas"]
 
 
-var hvBurger=`<div class="burger">
-                <i class="fa fa-bars"></i>
-                <ul>`
+var hvBurger=`
+                <i class="fa fa-bars" onClick="burgeri()"></i>
+                <ul id="lista">`
   for(let i=0;i<navNiz.length;i++){               
          hvBurger+=`<li><a href="${linkovi[i]}" target="_self">${navNiz[i]}</a></li>`
   }
   hvBurger+=` </ul>
-            </div>`
+            `
 burger.innerHTML=hvBurger;
 
 var navBar=` <ul class="text-center">`;
 for(let i=0;i<navNiz.length;i++){
     navBar+=`<li><a href="${linkovi[i]}" target="_self">${navNiz[i]}</a></li>`;
 }
-navBar+=`</ul>
-        </div>`;
+navBar+=`</ul>`
+        
 navigate.innerHTML=navBar;
 console.log(navigate);
 
+function burgeri(){
+  if(document.getElementById("lista").style.display === "block"){
+    document.getElementById("lista").style.display = "none";
+  }
+  else{
+    document.getElementById("lista").style.display="block"
+  }
+}
 
   
       //DUGME TOP

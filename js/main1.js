@@ -85,12 +85,13 @@ function topFunction() {
 function futer(){
     var futer=document.getElementById("futer");
     var sadrzajFutera=["Sitemap","Autor","Dokumentacija"];
+    var adresaSadrzaja=["","autor.html",""];
     var hvatacFutera=''
     
     for(let i=0;i<sadrzajFutera.length;i++){
       hvatacFutera+=`
                     <div>
-                      <a href="">${sadrzajFutera[i]}</a>
+                      <a href="${adresaSadrzaja[i]}">${sadrzajFutera[i]}</a>
                     </div>
                   `
     }
