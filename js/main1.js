@@ -1,6 +1,4 @@
 
-
-//Dugme read more
 function myFunction() {
     var dots = document.getElementById("dots");
     var moreText = document.getElementById("more");
@@ -17,10 +15,6 @@ function myFunction() {
     }
   }
 
-  // When the user scrolls down 20px from the top of the document, show the button
-
-
-// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
@@ -39,10 +33,6 @@ function topFunction() {
     }
   }
 
-  /*$(document).ready(function(){ $('#scrollToTop a').
- click( function(){
- $.scrollTo(0,'slow'); return false;
- }); });s */
 
   function slideShow(){
 
@@ -56,8 +46,6 @@ function topFunction() {
     console.log(trenutniElement);
     setTimeout(slideShow, 2000);
   }
-
-  
 
    function izvrsiAkordion(){
     for(let i=0;i<pitanjaPacijenata.length;i++){
@@ -85,13 +73,13 @@ function topFunction() {
 function futer(){
     var futer=document.getElementById("futer");
     var sadrzajFutera=["Sitemap","Autor","Dokumentacija"];
-    var adresaSadrzaja=["","autor.html",""];
+    var adresaSadrzaja=["sitemap.xml","autor.html",""];
     var hvatacFutera=''
     
     for(let i=0;i<sadrzajFutera.length;i++){
       hvatacFutera+=`
                     <div>
-                      <a href="${adresaSadrzaja[i]}">${sadrzajFutera[i]}</a>
+                      <a href="${adresaSadrzaja[i]}" target="_blank">${sadrzajFutera[i]}</a>
                     </div>
                   `
     }
