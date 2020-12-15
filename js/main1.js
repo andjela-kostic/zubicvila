@@ -73,7 +73,7 @@ function topFunction() {
 function futer(){
     var futer=document.getElementById("futer");
     var sadrzajFutera=["Sitemap","Autor","Dokumentacija"];
-    var adresaSadrzaja=["sitemap.xml","autor.html",""];
+    var adresaSadrzaja=["sitemap.xml","autor.html","Documentation.pdf"];
     var hvatacFutera=''
     
     for(let i=0;i<sadrzajFutera.length;i++){
