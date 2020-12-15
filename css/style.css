@@ -12,8 +12,7 @@ body{
  header{
   background-image: url('../img/naslovna.jpg');
   height: 44vw;
-  background-attachment: fixed;
-  background-position:top
+  background-position:top;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.9;
@@ -21,11 +20,22 @@ body{
  li{
   margin: auto;
  }
+ nav ul li a{
+   color:rgb(37, 156, 37);
+ }
  a{
    text-decoration: none;
  }
- a:link {
-  text-decoration: none;
+ a:hover {
+  text-decoration: none !important;
+  font-weight: bold; 
+ 
+}
+nav ul li a:hover{
+  color:rgb(243, 104, 143);
+}
+nav{
+  box-shadow:20px 20px 20px rgb(0, 0, 0);
 }
  #h{
   padding-top: 20vw;
@@ -66,13 +76,13 @@ body{
     #myBtnn {
       display: none;
       position: fixed;
-      bottom: 20px;
-      right: 30px;
+      bottom: 2vw;
+      right: 2vw;
       z-index: 99;
       font-size: 18px;
       border: none;
       outline: none;
-      background-color: red;
+      background-color: rgb(243, 104, 143);;
       color: white;
       cursor: pointer;
       padding: 15px;
@@ -81,24 +91,22 @@ body{
     #myBtnn:hover {
       background-color: #555;
     }
-#vraper div{
-    max-height: 30vw;
+#vraper div, #vraper1 div{
+  background-color: rgb(154,200,32);
+    max-height: 35vw;
 }
-.text-responsive,i,p{
+.text-responsive,i,p,footer div a{
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 #naslov{
   font-family: 'Abril Fatface', cursive;
   font-size: 4.5vw;
-  color:red;
+  color:rgb(243, 104, 143);;
   text-shadow: 2px 2px 5px rgb(37, 156, 37);
 }
-h3{
-  font-family: 'Abril Fatface', cursive;
-  font-size: 5vw;
-}
+
 #opis{
-  color:red;
+  color:rgb(243, 104, 143);
 }
 #slajder{
   overflow: hidden;
@@ -110,19 +118,18 @@ h3{
 }
 #slajder .aktivna{
   display:block;
-  height: 50wv;
-  width: 0wv;
+  height: auto;
+  width: 70vw;
 }
  #okvir{
   background-color:rgb(154,200,32);
  }
 #nasaO{
   color: white;
-  font-size: 8wv !important;
   padding-bottom: 0px;
 }
-#nasTim{
-  margin: 0 auto;
+#slajder{
+  margin: 0px auto;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -149,7 +156,6 @@ h3{
 
 .kontaktirajteNas {
   background: rgb(154,200,32);
-  margin-bottom: 10%;;
   display: flex;
   box-orient: vertical;
   box-direction: normal;
@@ -160,10 +166,16 @@ h3{
   align-items: center;
 
  }
-.kontaktirajteNas h3 {
-  font-size: 2.5em;
-  text-align: center;
- }
+
+ h3{
+  font-family: 'Abril Fatface', cursive;
+  font-size: 5vw !important;
+  margin-top:3vw !important;
+}
+#oNama h3{
+  font-size: 2rem !important;
+
+}
  body .kontaktirajteNas form {
   display: flex;
   box-orient: vertical;
@@ -220,26 +232,7 @@ h3{
   background: black;
   color: white;
  }
- .belo{
-   width: 30%;
-   padding:2vw;
-   margin: 0px auto;
-   background-color: white;
-   border-radius: 0px 0px 40px 40px;
- }
 
-.zeleno{
-  background-color: rgb(154,200,32);
-    width: 30%;
-   padding:2vw;
-   margin: 0px auto;
-   font-size: 5em;
-   border-radius: 0px 0px 40px 40px ;
-}
-.zeleno h3{
-  font-size: 3vw;
-  margin: 0px auto;
-}
 
 /*accordion*/
 
@@ -255,6 +248,7 @@ h3{
   padding: 1vw 1vw;
   cursor: pointer;
   transition: 0.2s ease;
+  background-color: rgb(154,200,32);
 }
 
 .accordion  .arrow {
@@ -314,15 +308,15 @@ tr {
   font-size: 1.3rem;
   border-radius: 5px;
   font-weight: bold;
-  padding: 0.1wv;
-  margin-top: 0.2wv;
+  padding: 0.1vw;
+  margin-top: 0.2vw;
 }
 
 #cenIkom{
   margin:10% 0%;
 }
 .pPacijenta{
-  width: 6wv;
+  width: 20vw;
   height: auto;
 }
 
@@ -331,9 +325,42 @@ tr {
   
   background-color: bisque;
 }
-.slikap{
-  background-color: chartreuse;
-}
+
 hr{
   text-shadow: 2px 2px black;
+}
+#divAutor{
+  min-height:400px;
+  width: 70vw;
+  padding: 2vw;
+  background-color:rgb(144, 182, 113);
+  margin: 0px auto;
+  margin-bottom: 10vw;
+}
+#profili{
+  margin: 0px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#profili a i{
+  font-size: 7vw;
+  margin-right: 2vw;
+  color: #333;
+}
+footer{
+  background-color: #333333;
+}
+footer div{
+  text-align: center;
+}
+footer div a{
+  color: #d3e3b6;
+}
+#futer{
+  max-height: 40vh;
+}
+
+#Burger,#Burger ul{
+  display: none;
 }
