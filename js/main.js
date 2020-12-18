@@ -1,4 +1,11 @@
 
+$(document).ready( function(){
+  $('table tbody tr:even').addClass('boja')
+  $('table tbody tr').hover(
+    function(){$(this).addClass('zebra')},
+    function(){$(this).removeClass('zebra')}
+  );
+ }); 
 var el = document.getElementById("naslov");
 var le= document.getElementById("naslov");
 

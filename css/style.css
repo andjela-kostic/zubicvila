@@ -76,17 +76,17 @@ nav{
     #myBtnn {
       display: none;
       position: fixed;
-      bottom: 2vw;
-      right: 2vw;
+      bottom: 0.5vw;
+      right: 0.5vw;
       z-index: 99;
       font-size: 18px;
       border: none;
       outline: none;
-      background-color: rgb(243, 104, 143);;
+      background-color: rgb(243, 104, 143);
       color: white;
       cursor: pointer;
-      padding: 15px;
-      border-radius: 4px;
+      padding: 10px;
+      border-radius: 15px;
     }
     #myBtnn:hover {
       background-color: #555;
@@ -282,7 +282,7 @@ nav{
    width: 90%;
  }
 tbody{
-  border: 0.2vw solid;
+  border: 0.1vw solid rgba(223, 223, 223, 0.863);
 }
 td{
   font-size: 1.4rem;
@@ -293,7 +293,7 @@ thead tr th{
 }
 tr {
   margin:5px;
-  border-bottom: 1px dotted;
+
 }
 .desno{
   float:right;
@@ -395,5 +395,11 @@ header{
     position: relative;
     z-index: 1;
  }
+}
+.boja{
+  background-color:rgba(239, 239, 239, 0.863);
+}
+.zebra{
+  background-color: rgba(230, 230, 230, 0.863);
 }
 
