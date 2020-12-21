@@ -74,12 +74,12 @@ function futer(){
     var futer=document.getElementById("futer");
     var sadrzajFutera=["Sitemap","Autor","Dokumentacija"];
     var adresaSadrzaja=["sitemap.xml","autor.html","Documentation.pdf"];
-    var hvatacFutera=''
+    var hvatacFutera='';
     
     for(let i=0;i<sadrzajFutera.length;i++){
       hvatacFutera+=`
                     <div>
-                      <a href="${adresaSadrzaja[i]}" target="_blank">${sadrzajFutera[i]}</a>
+                      <a class="linkFutera" href="${adresaSadrzaja[i]}" target="_blank">${sadrzajFutera[i]}</a>
                     </div>
                   `
     }

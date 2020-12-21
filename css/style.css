@@ -9,27 +9,75 @@ html {
 body{
   background-color: #d3e3b6;
 }
- header{
-  background-image: url('../img/naslovna.jpg');
-  height: 44vw;
-  background-position:top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.9;
- }
- li{
+#vraper div, #vraper1 div,#okvir,.kontaktirajteNas,.accordion .head,#Burger,#dugmeZ{
+background-color:rgb(154,200,32);
+}
+#naslov,#opis{
+ color:rgb(243, 104, 143);
+}
+footer,nav{
+  background-color: #333;
+}
+.accordions .content,#profili a i {
+  color: #333;
+}
+#logo,.accordions .content, body .kontaktirajteNas form #posaljiPodatke{
+  background-color: white;
+}
+#Burger ul li a,#dugmeZ,#zakazite,#myBtnn{
+  color:white;
+}
+.navigationBar,ul,.kontaktirajteNas,body .kontaktirajteNas form,#profili,#lista{
+  display: flex;
+}
+.navigationBar,.kontaktirajteNas, body .kontaktirajteNas form {
+  align-items: center;
+}
+#slajder,ul,.accordion,#divAutor,#profili,#lista, .gl,.aktivna{
+  margin: 0px auto;
+}
+#ZV,#hP,body .kontaktirajteNas form p, body .kontaktirajteNas form #posaljiPodatke,.desno span,#zakazite p,#dugmeZ {
+  font-weight: bold;
+}
+#more,#myBtnn,#slajder img,.container .content,.accordions .content,#Burger {
+  display: none;
+}
+#imeO,#slajder .aktivna,.pPacijenta,#Burger,#zakazite{
+  height: auto;
+}
+footer div,body .kontaktirajteNas form p {
+  text-align: center;
+}
+#profili a i,#ZV{
+  font-size: 7vw;
+}
+#dugmeZ,nav ul li a{
+  font-size: 2vw;
+}
+#hP,#naslov,.accordion .arrow{
+  font-size: 3vw;
+}
+.accordion .head h2, #oNama h2{
+  font-size: 3.5vw !important;
+}
+#oNama h2,#naslov, h3,#ZV{
+  font-family:'Abril Fatface', cursive ;
+}
+li{
   margin: auto;
+}
+a{
+  text-decoration: none;
+}
+a:hover {
+ text-decoration: none !important;
+ font-weight: bold; 
+}
+nav ul li a,.linkFutera{
+   color:#d3e3b6;
  }
- nav ul li a{
-   color:rgb(37, 156, 37);
- }
- a{
-   text-decoration: none;
- }
- a:hover {
-  text-decoration: none !important;
-  font-weight: bold; 
- 
+.linkFutera:hover{
+  color:rgb(243, 104, 143);
 }
 nav ul li a:hover{
   color:rgb(243, 104, 143);
@@ -37,104 +85,83 @@ nav ul li a:hover{
 nav{
   box-shadow:20px 20px 20px rgb(0, 0, 0);
 }
- #h{
-  padding-top: 20vw;
- }
- site-navbar {
-    position: fixed;
-    top: 0;
-    transition: top 0.2s ease-in-out;
-    }
-    .navbar-up {
-    top: -120px;
-    }
-    .navigationBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 8vh;
-    line-height: 1.4em;
-    }
-    ul {
-      margin: 0px auto;
-    display: flex;
-    justify-content: space-around;
-    width: 90%;
-    list-style: none;
-    padding: 2vw;
-    }
-    
-   nav ul li a {
-    margin-left: 15px;
-    margin-right: 15px;
-    color: #111111;
-    font-size: 3vw;
-    }
-
-    #more {display: none;}
-
-    #myBtnn {
-      display: none;
-      position: fixed;
-      bottom: 0.5vw;
-      right: 0.5vw;
-      z-index: 99;
-      font-size: 18px;
-      border: none;
-      outline: none;
-      background-color: rgb(243, 104, 143);
-      color: white;
-      cursor: pointer;
-      padding: 10px;
-      border-radius: 15px;
-    }
-    #myBtnn:hover {
-      background-color: #555;
-    }
+site-navbar {
+  position: fixed;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+}
+.navbar-up {
+  top: -120px;
+}
+.navigationBar {
+  justify-content: space-between;
+  min-height: 8vh;
+  line-height: 1.4em;
+}
+ul {
+  justify-content: space-around;
+  width: 90%;
+  list-style: none;
+  padding: 2vw;
+}   
+nav ul li a {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+#myBtnn {
+  position: fixed;
+  bottom: 0.5vw;
+  right: 0.5vw;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgb(243, 104, 143);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+#myBtnn:hover {
+  background-color: #555;
+}
 #vraper div, #vraper1 div{
-  background-color: rgb(154,200,32);
     max-height: 35vw;
 }
 .text-responsive,i,p,footer div a{
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
-#naslov{
-  font-family: 'Abril Fatface', cursive;
-  font-size: 4.5vw;
-  color:rgb(243, 104, 143);;
-  text-shadow: 2px 2px 5px rgb(37, 156, 37);
+
+header{
+  background-image: url('../img/naslovna.jpg');
+  height: 50vw;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+ }
+#imeO{
+  padding: 17vw 10vw;
+  padding-bottom: 5vw;
+}
+#ZV{
+  letter-spacing: 1.5vw;
 }
 
-#opis{
-  color:rgb(243, 104, 143);
+#naslov{
+  text-shadow: 2px 2px 5px rgb(37, 156, 37);
+  padding-left: 10vw;
 }
+
 #slajder{
   overflow: hidden;
-  
-}
-#slajder img{
-
-  display: none;
 }
 #slajder .aktivna{
   display:block;
-  height: auto;
   width: 70vw;
-}
- #okvir{
-  background-color:rgb(154,200,32);
- }
-#nasaO{
-  color: white;
-  padding-bottom: 0px;
-}
-#slajder{
-  margin: 0px auto;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-
 }
 .card img{
   height:40vh;
@@ -143,58 +170,38 @@ nav{
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
 .container {
   padding: 2px 16px;
 }
-
 .container .content {
-  display: none;
   padding : 5px;
 }
-
-
 .kontaktirajteNas {
-  background: rgb(154,200,32);
-  display: flex;
   box-orient: vertical;
   box-direction: normal;
   flex-direction: column;
   box-pack: center;
   justify-content: center;
   box-align: center;
-  align-items: center;
-
  }
-
  h3{
-  font-family: 'Abril Fatface', cursive;
-  font-size: 5vw !important;
-  margin-top:3vw !important;
-}
-#oNama h3{
-  font-size: 2rem !important;
-
-}
+  margin: 5vw !important;
+  font-size:4vw!important;
+ }
  body .kontaktirajteNas form {
-  display: flex;
   box-orient: vertical;
   box-direction: normal;
   flex-direction: column;
   box-pack: center;
   justify-content: center;
   box-align: center;
-  align-items: center;
   margin-top: 4%;
   border: none;
  }
  body .kontaktirajteNas form p {
   font-size: 1.13em;
-  font-weight: bold;
   visibility: hidden;
-  text-align: center;
  }
- 
  body .kontaktirajteNas form .popuniSirinu {
   width: 70%;
   padding: 1%;
@@ -215,68 +222,49 @@ nav{
  body .kontaktirajteNas form .popuniSirinu::placeholder {
   color: white;
  }
-
  body .kontaktirajteNas form #posaljiPodatke {
   width: 25%;
   padding: 1.3% 0%;
   border: none;
-  background: white;
   color: black;
-  font-weight: bold;
   font-size: 1.2em;
   -webkit-transition: 0.7s;
-
   transition: 0.7s;
  }
  body .kontaktirajteNas form #posaljiPodatke:hover {
   background: black;
   color: white;
  }
-
 .accordion{
   position: relative;
   box-shadow: 0px 1px 7px #111111;
   width:70vw;
-  margin: 0px auto;
 }
-
 .accordion .head{
   padding: 1vw 1vw;
   cursor: pointer;
   transition: 0.2s ease;
-  background-color: rgb(154,200,32);
 }
-
 .accordion  .arrow {
   position: absolute;
   right: 2vw;
   top: 2vw;
-  font-size: 3vw;
   transition: 0.25s ease;
   opacity: 0.3;
-}
-.accordion .head h2{
-  font-size: 3.5vw;
 }
 .accordion .head:hover .arrow{
   opacity: 1;
 }
-
 .accordion .head:hover, .accordion .active{
   background-color: #47641a;
-  color:#FFFFFF;
+  color:white;
 }
-
 .accordion .arrow-animate{
   transform: rotate(+90deg);
   opacity: 1;
 }
-
 .accordions .content {
-  background-color: #FFFFFF;
-  display: none;
   padding: 2vw 2vw;
-  color: #333333;
 }
  table{
    width: 90%;
@@ -293,7 +281,6 @@ thead tr th{
 }
 tr {
   margin:5px;
-
 }
 .desno{
   float:right;
@@ -302,25 +289,22 @@ tr {
   background-color: chartreuse;
   font-size: 1.3rem;
   border-radius: 5px;
-  font-weight: bold;
   padding: 0.1vw;
   margin-top: 0.2vw;
 }
-
 #cenIkom{
   margin:10% 0%;
 }
+#cenovnik{
+  margin-bottom: 10vw;
+}
 .pPacijenta{
   width: 20vw;
-  height: auto;
 }
-
 .kPacijenta{
   float:right;
-  
   background-color: bisque;
 }
-
 hr{
   text-shadow: 2px 2px black;
 }
@@ -329,72 +313,67 @@ hr{
   width: 70vw;
   padding: 2vw;
   background-color:rgb(144, 182, 113);
-  margin: 0px auto;
   margin-bottom: 10vw;
 }
 #profili{
-  margin: 0px auto;
-  display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 #profili a i{
-  font-size: 7vw;
   margin-right: 2vw;
-  color: #333;
-}
-footer{
-  background-color: #333333;
-}
-footer div{
-  text-align: center;
-}
-footer div a{
-  color: #d3e3b6;
 }
 #futer{
   max-height: 40vh;
 }
-
 header{
   position:relative;
 }
 #Burger{
-  display: none;
+  width: 100vw;
 }
-#Burger ul{
-  display: flex;
+#lista{
   flex-direction: column;
   width:30vw;
-  background-color:rgb(154,200,32);
-  border: 1px solid;
+  margin-bottom: 3vw;
 }
 .fa-bars{
   color:#111111;
   font-size: 10vw !important;
+  margin:5px;
 }
-@media screen and (max-width: 450px){
+.gl{
+  width: 5vw;
+  font-size: 6vw;
+}
+@media screen and (max-width: 500px){
+  header{
+    height: 60vw;
+  }
+  h3,#oNama h2{
+    font-size: 8vw !important;
+  }
+  #h{
+    padding-top: 30vw;
+  }
   #navigacija{
     display: none;
   }
   #Burger {
     display: block !important;
     position: fixed;
-    left:3vw;
-    top: 3vw;
+    top:2;
+    right:2;
     z-index: 2;
- }
+  }
     #Burger ul{
       display: none;
     }
-}
-@media screen and (max-width: 450px){
- #burger ul li {
-    float: right;
-    margin-left:5px;
-    position: relative;
-    z-index: 1;
- }
+  #burger ul li {
+      float: right;
+      margin-left:5px;
+      position: relative;
+      z-index: 1;
+   }
 }
 .boja{
   background-color:rgba(239, 239, 239, 0.863);
@@ -402,4 +381,17 @@ header{
 .zebra{
   background-color: rgba(230, 230, 230, 0.863);
 }
-
+#zakazite{
+  margin: 7vw auto;
+  background-image:url('../img/dete.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 4vw;
+}
+#zakazite p{
+  font-size: 2.5vw;
+}
+#dugmeZ{
+  float: right;
+  padding: 1.5vw;
+}

@@ -12,13 +12,13 @@ var le= document.getElementById("naslov");
 var navigate=document.getElementById("navigacijaMeni");
 var burger=document.getElementById("Burger");
 var navNiz=["O nama","Galerija","Naš tim","Cenovnik","Kontakt"];
-var linkovi=["#oNama","#okvir","#tim","#cenIkom","#kontaktirajteNas"]
+var linkovi=["#oNama","#okvir","#nasTim","#cenIkom","#kontaktirajteNas"]
 
 var hvBurger=`
                 <i class="fa fa-bars" onClick="burgeri()"></i>
                 <ul id="lista">`
   for(let i=0;i<navNiz.length;i++){               
-         hvBurger+=`<li><a href="${linkovi[i]}" target="_self">${navNiz[i]}</a></li>`
+         hvBurger+=`<li><a href="${linkovi[i]}" class="gl" target="_self">${navNiz[i]}</a></li>`
   }
   hvBurger+=` </ul>`
 burger.innerHTML=hvBurger;
@@ -62,11 +62,11 @@ var Galerijaa=document.getElementById("galerija");
 var Galerija='';
 
 for(let i=0;i<1;i++){
-   Galerija+=`<div class="col-lg-12 row justify-content-md-center" id="slajder">
-                  <img src="img/${slike[i]}" id="prva" class="aktivna img-fluid" alt="ordinacija"/>`
+   Galerija+=`<div id="slajder">
+                  <img src="img/${slike[i]}" class="aktivna img-fluid" alt="ordinacija"/>`
               console.log(Galerija);
   for(let j=1;j<slike.length;j++){
-      Galerija+=`<img src="img/${slike[j]}" id="drrrva"  class="img-fluid" alt="fotografija ordinacije ${slike[j]}"/>`
+      Galerija+=`<img src="img/${slike[j]}"  class="img-fluid" alt="fotografija ordinacije ${slike[j]}"/>`
       console.log(Galerija)          
   }
   Galerija+=`</div>`
@@ -81,7 +81,7 @@ var zvanje=["Specijalista parodontologije","Specijalista oralne hirurgije","Impl
 var skladiste=document.getElementById("nasTim");
 var sakupljac=''
 for(let i=0;i<doktori.length;i++){
-sakupljac+=`<div class="card col-lg-2 col-sm-5 col-9 m-2">
+sakupljac+=`<div class="card col-lg-2 col-sm-5 col-10 m-2">
               <img src="${doktori[i]}" alt="doktor${i} class="img-fluid "/>
               <div>
                   <h4><b>${imena[i]}</b></h4>
@@ -94,12 +94,12 @@ skladiste.innerHTML=sakupljac;
 var pitanjaPacijenata=["Zašto zub boli?","Zašto krvare desni?","Šta je paradontopatija i kako se leči?","Zašto smo baš mi najbolji izbor za vas?"];
 var odgovoriDoktora=["Uzroci zubobolje su mnogobrojni. Najčešće su to stare plombe, neprepoznat karijes ispod kontaktne tačke dva zuba i ogoljen vrat zuba prilikom povlačenja desni. Posledica svega navedenog je eksponirani dentin koji preko tubula prenosi nadražaje do pulpe pri čemu se javlja bolna senzacija.","Glavni uzrok krvarenja desni je upala desni koja je posledica skupljanja naslaga na zubima. Krvarenje desni i prisustvo parodontalnih džepova je jedan od prvih znakova parodontopatije. Redovne posete vašem stomatologu i uklanjanje kamenca i naslaga na zubima će pozitivno uticati na stanje vaših desni i zaustaviti progresiju parodontopatije.","Parodontopatija je progresivna bolest desni gde dolazi do povlačenja desni i same kosti oko korena zuba što za posledicu ima stvaranje džepova, klaćenje zuba i na kraju ispadanje. Parodontopatija se ne može izlečiti ali se njen tok može usporiti ili privremeno zaustaviti. Redovne posete i slušanje saveta stomatologa će sačuvati vaše zube.","Ordinaciju Profident čini tim stručnjaka specijalizovanih za sve grane stomatologije (oralne hirurgije, stomatološke protetike, endodoncije, parodontologije, implantologije, dečije i preventivne stomatologije). Savremenim pristupom lečenja i korišćenjem najmodernijh materijala postizemo najbolje moguće rezultate. U prilog tome govori i 20 godina radnog iskustva iza nas."];
 var akordion=document.getElementById("accordionDiv");
-var hvatacAkordiona=`<h3 class="text-center m-5 p-3">Najčešća pitanja pacijenata</h3>`;
+var hvatacAkordiona=`<h3 class="text-center">Najčešća pitanja pacijenata</h3>`;
 
 izvrsiAkordion()
 
 var usluge=["Stomatološki pregled","Prva pomoć","Kompozitni ispun","Terapija dubokog karijesa","Vitalna ekstirpacija","Lečenje gangrene (1 seansa)","Helio nadogradnja","Izbeljivanje zuba laserom BIOLASE","Izbeljivanje avitalnog zuba","Izbeljivanje zuba trejom (kućna varijanta)","Izbeljivanje u ordinaciji","Rutinsko vađenje zuba","Komplikovano vađenje zuba","Implantat","Obrada parodontalnog džepa"]
-var cene=["1.000","1.500","3.000","1.700","2.200","1.500","5.500","35.000","6.600","10.000","23.000","2.400","6.000","64.000","1.700"]
+var cene=["Besplatno","1.500","3.000","1.700","2.200","1.500","5.500","35.000","6.600","10.000","23.000","2.400","6.000","64.000","1.700"]
 var cenovnik=document.getElementById("cenovnik");
 var hvatacTabele=`<table>
                     <thead>
@@ -157,6 +157,29 @@ function scrollFunction() {
   }
 }
 
+function kontaktirajteNas(){
+  var forma=`<h3>Pišite nam</h3>
+  <form action="index.html" method='POST' class="col-md-8 col-11">`
+  var kontakt=document.getElementById("kontaktirajteNas")
+  var placeholder=["Vaše ime","Vaše prezime","Vaš e-mail"]
+  var tip=["text","text","email"];
+  var id=["ime","prezime","mejl"];
+  var name=["name","surname","mail"];
+  var pId=["greskaNaImenu","greskaNaPrezimenu","greskaNaMejlu"];
+  var opisGreske=["Niste pravilno uneli ime (prvo slovo mora biti veliko).","Niste pravilno uneli prezime (prvo slovo mora biti veliko).","Niste uneli Vaš e-mail u pravilnom formatu."]
+  for(let i=0;i<placeholder.length;i++){
+    forma+=`<input type="${tip[i]}" placeholder="${placeholder[i]}" class='popuniSirinu' id="${id[i]}" name='${name[i]}'/>
+    <p class='greska' id='${pId[i]}'>${opisGreske[i]}</p>`
+  }
+  forma+= `<textarea class='popuniSirinu' name="txtArea" placeholder="Vaša poruka" id="txtArea" cols="30" rows="10"></textarea>
+  <p class='greska' id='greskaNaTekstPoruka'>Niste ništa uneli.</p>
+  <input type="submit" value='Pošalji' id='posaljiPodatke'/>
+  <p id='nijeGreska'>Vaša poruka je poslata !<br/>Javićemo Vam se uskoro.</p>
+</form>`
+kontakt.innerHTML=forma;
+}
+kontaktirajteNas();
+
 $(document).ready(function(){
   $('#posaljiPodatke').click(proveriFormu);
  })
@@ -190,26 +213,5 @@ $(document).ready(function(){
   pokaziGresku(message, regularniMessage, tekstPorukaGr)
  }
 
- function kontaktirajteNas(){
-   var forma=`<h3>Pišite nam</h3>
-   <form action="index.html" method='POST' class="col-md-8 col-11">`
-   var kontakt=document.getElementById("kontaktirajteNas")
-   var placeholder=["Vaše ime","Vaše prezime","Vaš e-mail"]
-   var tip=["text","text","email"];
-   var id=["ime","prezime","mejl"];
-   var name=["name","surname","mail"];
-   var pId=["greskaNaImenu","greskaNaPrezimenu","greskaNaMejlu"];
-   var opisGreske=["Niste pravilno uneli ime (prvo slovo mora biti veliko).","Niste pravilno uneli prezime (prvo slovo mora biti veliko).","Niste uneli Vaš e-mail u pravilnom formatu."]
-   for(let i=0;i<placeholder.length;i++){
-     forma+=`<input type="${tip[i]}" placeholder="${placeholder[i]}" class='popuniSirinu' id="${id[i]}" name='${name[i]}'/>
-     <p class='greska' id='${pId[i]}'>${opisGreske[i]}</p>`
-   }
-   forma+= `<textarea class='popuniSirinu' name="txtArea" placeholder="Vaša poruka" id="txtArea" cols="30" rows="10"></textarea>
-   <p class='greska' id='greskaNaTekstPoruka'>Niste ništa uneli.</p>
-   <input type="submit" value='Pošalji' id='posaljiPodatke'/>
-   <p id='nijeGreska'>Vaša poruka je poslata !<br/>Javićemo Vam se uskoro.</p>
- </form>`
- kontakt.innerHTML=forma;
- }
- kontaktirajteNas();
+
 

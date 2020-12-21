@@ -14,17 +14,19 @@
   <title>Stomatološka ordinacija - Zubić vila</title>
   <link rel="icon" href="img/icon.png"/>
 </head>
-<body>
+<body>  
 <!---Navigacija--->
-  <nav class="container-fluid " id="navigacija">        
-     <div class=" navigationBar site-navbar banner" id="navigacijaMeni">
-     </div>
-  </nav>
   <div id="Burger"></div>
+  <nav class="container-fluid" id="navigacija">       
+     <div class="navigationBar site-navbar banner" id="navigacijaMeni"></div>
+  </nav>
 <!---Header--->
-  <header>      
-    <div id="h" class="col lg-4  ">
-      <h1 id="naslov" class="text-center primary text-light"> </h1>
+  <header class="container-fluid"> 
+    <div id="imeO" class="row" >
+      <h2 id="hP"class="">stomatološka ordinacija</br></br><span id="ZV"> ZUBIĆ VILA</span></h2>
+    </div>   
+    <div id="hD" class="row">
+      <h1 id="naslov" class="primary text-light"> </h1>
     </div>
   </header>
 <!---O nama--->
@@ -35,7 +37,7 @@
 <!--Deo o nama-->
     <div id="oNama" class="row justify-content-md-center p-5">
       <div class="col-md-6">
-        <h3 class="col-md-12  text-left">Dobrodošli na sajt stomatološke ordinacije Zubić vila</h3>
+        <h2 class="col-md-12  text-left">Dobrodošli na sajt stomatološke ordinacije ZUBIĆ VILA</h2>
         <div class="col-md-12 about-text text-center">
           <p class="text-left my-4">U svom novouređenom, ugodnom prostoru svakom pojedincu pružamo celovitu, kvalitetnu i brzu uslugu te detaljnu i stručnu brigu za zdravlje i lepotu zuba. Individualnim i neposrednim pristupom u vrlo ugodnoj atmosferi podstičemo otvoren dijalog o razlozima posete našoj stomatološkoj ordinaciji.<span id="dots">...</span><span id="more"> Garantujemo vrlo precizno otkrivanje uzroka nezadovoljstva vlastitim osmehom. U svom radu s pacijentima zadržavamo najviši profesionalni standard, beskompromisno poštujući pravila struke. Isto tako koristimo najkvalitetnije i najsigurnije proverene materijale i najmoderniju, visokokvalitetnu opremu renomiranih svetskih proizvođača. Radno mesto, stomatološka stolica sa svim nasadnim instrumentima i pratećom opremom je od nemačkog proizvođača KaVo najnovije generacije. Neprestano ulažemo u naše znanje,veštine i opremu te idemo u korak sa savremenom stomatologijom kako bi našim pacijentima omogućili što bolje i kvalitetnije usluge.
             U modernom i porodičnom ambijentu uz besplatne preglede, konsultacije i savete možete dobiti sve stomatološke usluge na jednom mestu. Za Vaše zdravlje brine naš tim od dva doktora stomatologije i saradnici.</span></p>
@@ -44,20 +46,29 @@
       </div>
       <div class="col-md-6 ">
         <img src="img/1.jpg" id="zzubi" class="img-fluid mt-5 rounded mx-auto d-block"alt="zuti zubi"/>
-        <p id="opis" class="text-center"><b>Izbeljivanje zuba</b></p>
+        <p id="opis" class="text-center"><b>Trenutno na akciji - izbeljivanje zuba</b></p>
       </div>
     </div>   
   </div>  
 <!---Galerija--->
-  <div id="okvir" class="container-fluid">
-    <h3 id="nasaO" class="text-center p-3">Naša ordinacija</h3>  
-    <div id="galerija" class="row p-5">
+  <div id="okvir" class="container-fluid p-3">
+    <h3 class="text-center">Naša ordinacija</h3>  
+    <div id="galerija" class="pb-5">
     </div>
   </div>
 <!---Nas tim--->
-  <h3 class="text-center p-3">Naš tim</h3>
+  <h3 class="text-center">Naš tim</h3>
   <div class="container-fluid d-flex justify-content-around row p-5" id="nasTim">
   </div>
+  <!----Zakazite--->
+<div class="container-fluid align-items-center row" id="zakazite">
+    <div class="col-sm-9">
+      <p>Krajnje je vreme da izaberete svog stomatologa.</br>Zakažite besplatan dijagnostički pregled već danas.</p>
+    </div>
+    <div class="col-sm-2">
+      <a href="#kontaktirajteNas"><input type="button" id="dugmeZ" name="zakazi" value="Zakažite"/></a>
+  </div>
+</div>
 <!--Pitanja pacijenata-->
   <div id="accordionDiv" class="container">
   </div>
