@@ -2,11 +2,12 @@
 $(document).ready( function(){
   zebraStil()
   prikazBurgera();
+  izracunajDane()
   Ispis(document.getElementById('vraper'));
   Ispis(document.getElementById('vraper1'));
   slideShow();
   izvrsiAkordion();
-  $('#posaljiPodatke').click(proveriFormu);
+  $('#posaljiPodatke').click(proveriFormu)
  }); 
  function zebraStil(){
   $('table tbody tr:even').addClass('boja')
@@ -19,8 +20,8 @@ var le= document.getElementById("naslov");
 
 var navigate=document.getElementById("navigacijaMeni");
 var burger=document.getElementById("Burger");
-var navNiz=["O nama","Galerija","Naš tim","Cenovnik","Kontakt"];
-var linkovi=["#oNama","#okvir","#nasTim","#cenovnik","#kontaktirajteNas"]
+var navNiz=["O nama","Galerija","Naš tim","Cenovnik","Kontakt","Autor"];
+var linkovi=["#oNama","#okvir","#nasTim","#cenovnik","#kontaktirajteNas","#divAutor"]
 
 var hvBurger=`
                 <i class="fa fa-bars" ></i>
@@ -58,10 +59,6 @@ var mybutton = document.getElementById("myBtnn");
 var ikonice=["fa fa-phone",	"fa fa-clock-o","fa fa-envelope","fa fa-map-marker"];
 var sadrzaj=["060 939156","PON-PET: 08-20","zubicvila@gmail.com","Zdravka Čelara 16, </br>Beograd"];
 
-
-
-
-
 var slike=["naslovna.jpg","naslovna1.jpg","naslovna2.jpg"]
 var Galerijaa=document.getElementById("zaglavlje");
 var Galerija='';
@@ -75,8 +72,6 @@ for(let i=0;i<1;i++){
   Galerija+=`</div>`
 }
 Galerijaa.innerHTML=Galerija;
-
-
 
 var doktori=['img/dr1.jpg','img/dr2.jpg','img/dr3.jpg','img/dr4.jpg'];
 var imena=["Slavica Jovanović","Marija Ilić","Marko Simonović","Milutin Ramić"];
@@ -121,8 +116,6 @@ hvatacTabele+=`   </tbody>
                 </table>`
 cenovnik.innerHTML=hvatacTabele;
 
-
-
 setInterval(function(){
   el.innerHTML="ZUBI SU OGLEDALO VAŠEG ZDRAVLJA"
 },4500);
@@ -140,7 +133,6 @@ function scrollFunction() {
   }
 }
 
-
  function proveriFormu(e){
   e.preventDefault();
   var tacnostForme = true;
@@ -155,14 +147,22 @@ function scrollFunction() {
   var regularniIme = /^[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}(\s[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}){0,1}$/;
   var regularniPrezime = /^[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}(\s[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}){0,1}$/;
   var regularniMejl = /^[a-zčćžđš][a-z\d\-\.\wčćžđš]+\@[a-z]+(\.[a-z]{2,12}){1,2}$/
-  var regularniMessage = /.{4,200}/
+  var regularniMessage = /.{4,200}/;
+  var greska=4;
   function pokaziGresku(promenljiva, izraz, idPoruke){
+  if(greska==4){
+      document.getElementById("nijeGreska").style.visibility = 'hidden'
+    }
   if (!izraz.test(promenljiva)){
     tacnostForme = false;
     idPoruke.style.visibility = 'visible';
   }
   else {
   idPoruke.style.visibility = 'hidden';
+  greska--;
+    if(greska==0){
+    document.getElementById("nijeGreska").style.visibility = 'visible';
+      }
     }
   }
   pokaziGresku(ime, regularniIme, imeGr);
@@ -171,18 +171,15 @@ function scrollFunction() {
   pokaziGresku(message, regularniMessage, tekstPorukaGr)
  }
 
-////////////////////
+function izracunajDane(){
 var trenutno=new Date();
-
 var buduce=new Date("2/15/2021");
 buduce.setHours("20");
 buduce.setMinutes("00");
-
 var razlika=buduce-trenutno;
-console.log(razlika)
-
 document.querySelector("#Vreme").innerHTML='Preostalo je još <b>'+ Math.ceil(razlika/(1000*60*60*24)) +' </b>dana do kraja akcije.';
-/////////////////////////
+}
+
 var pacijenti=['PROFILE1.jpg','PROFILE2.jpg','PROFILE3.jpg','anita.png','bogdan.jpg','Ceca.jpg'];
 var altPac=['Jovana Mandić','Dragan Ilić','Goran Bosnić','Anita Đorđević','Bogdan Janković','Svetlana Ražnatović']
 var komentari=[' Bila sam prestravljena od zubnih implanta, ali ni jednog trenutka nisam osetila nelagodnost. Cela ordinacija je bila veoma profesionalna i prijateljska.','Hvala vam što tako dobro vodite računa o mojim zubima! Ne mogu vam opisati koliko je moje samopouzdanje poraslo od kako sam brigu o mojim zubima poverio baš vama. Želim vam što više uspeha i u daljem radu.','Imam divno iskustvo sa dr Markom i celim osobljem. Odlično su mi objasnili proceduru i imali su vremena da odgovore na sva moja postavljena pitanja. Toplo preporučujem Zubić vilu! Beskrajno vam hvala!','Moj osmeh sve govori. Sve preporuke za Zubic Vilu!','Vrlo profesionalno i ljubazno, postuje se vreme zakazanih termina,dopada mi se sto se daju garancije na radove i to govori da se koristi kvalitetan materijal.Treci put dolazim i veoma sam zadovoljan,ovakve ordinacije sam video na zapadu.','Zaista vrhunski kvalitet usluge. Maksimalno profesionalni i spremni da reše svaki vaš problem. Imate osećaj da ste u sigurnim rukama što je po meni najbitnije od svega.'];
@@ -208,7 +205,6 @@ for(let i=0;i<pacijenti.length;i++){
   divKomentara.appendChild(drzacKomentara);
 } 
 
-/////
 var galerija=document.getElementById("galerija");
 var nizSlikaOrdinacije=["o1.jpg","o2.jpg","o3.jpg","o4.jpg","o5.jpg","ordinacija9.jpg"];
 
@@ -226,7 +222,6 @@ for(let i=0;i<nizSlikaOrdinacije.length;i++){
   slikaUDivu.setAttribute("src","img/"+nizSlikaOrdinacije[i]);
   slikaUDivu.setAttribute("alt","fotografija ordinacije")
   slikaUDivu.setAttribute("class","img-fluid cnt")
-  console.log(slikaUDivu)
   drzeciDiv.appendChild(slikaUDivu);
   headPhoto.appendChild(drzeciDiv)
   var j=i+1;
@@ -299,8 +294,8 @@ function showSlides(n) {
   hidn[slideIndex-1].style.display = "block";
 }
 
-var korisniLinkovi=["Sitemap","Autor","Dokumentacija"];
-var adresaSadrzaja=["sitemap.xml","autor.html","Documentation.pdf"];
+var korisniLinkovi=["Sitemap","Dokumentacija"];
+var adresaSadrzaja=["sitemap.xml","Documentation.pdf"];
 
 var kLinkovi=document.getElementById("korisniLinkovi")
 var hvatacKLinkova='<h4 class="py-3"><b>Korisni linkovi</b></h4>';
@@ -313,3 +308,26 @@ var hvatacKLinkova='<h4 class="py-3"><b>Korisni linkovi</b></h4>';
                   `
     }
 kLinkovi.innerHTML=hvatacKLinkova;
+
+var nizPodataka=["Ime i prezime: ","Datum rođenja: ","Obrazovanje: ","Broj indeksa: "];
+var podaci=["Anđela Kostić","21.1.2001.","Visoka ICT","51/19"]
+var opisAutora=document.getElementById("opisAutora");
+var hvatacAutor=``;
+
+for(let i=0;i<podaci.length;i++){
+    hvatacAutor+=`
+                  <p><b>${nizPodataka[i]}</b> ${podaci[i]}</p>
+                  `
+}
+opisAutora.innerHTML=hvatacAutor;
+
+var linkovi=["https://andjela-kostic.github.io/portfolio/","https://github.com/andjela-kostic"];
+var nazivLinka=["Portfolio","GitHub"]
+var profil=document.getElementById("profili");
+var hvatacProfil=``;
+for(let i=0;i<linkovi.length;i++){
+    hvatacProfil+=` 
+    <a href="${linkovi[i]}" target="_blank"><button class="linkDugme">${nazivLinka[i]}</button></a>
+    `
+}
+profil.innerHTML=hvatacProfil;

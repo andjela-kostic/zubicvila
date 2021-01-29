@@ -6,6 +6,7 @@
 html {
    scroll-behavior: smooth;
  }
+ body { overflow-x: hidden; }
  .ops{
   opacity: 0.9;
  }
@@ -34,7 +35,7 @@ background-color:rgb(154,200,32);
 ul,#divAutor,#profili,#lista, .gl,.aktivna,#akcijskaKartica{
   margin: 0px auto;
 }
-#ZV,#hP,body .kontaktirajteNas form p, body .kontaktirajteNas form #posaljiPodatke,.desno span,#zakazite p,#dugmeZ {
+#ZV,#hP,body .kontaktirajteNas form p, body .kontaktirajteNas form #posaljiPodatke,.desno span,#zakazite p,#dugmeZ,.linkDugme{
   font-weight: bold;
 }
 #more,#myBtnn,#slajder img,.container .content,.accordion .content,#Burger {
@@ -162,10 +163,6 @@ header{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
 }
-/*.card img{
-  height:40vh;
-  width: auto;
-}*/
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -316,9 +313,7 @@ hr{
 #divAutor{
   min-height:400px;
   width: 70vw;
-  padding: 2vw;
-  background-color:rgb(144, 182, 113);
-  margin-bottom: 10vw;
+  margin-bottom: 5vw;
 }
 #profili{
   flex-direction: row;
@@ -423,42 +418,34 @@ header{
  }
  #korisniLinkovi,#navigacijaDole{
    margin-top: 0 !important;
+   font-size: 5vw !important;
+ }
+ .greska,#futer span,.accordion .head h2{
+   font-size: 4.2vw !important;
  }
 }
-
 #akcijskaKartica{
   width: 80%;
   border-radius: 0.25rem;
   padding: 1vw;
   box-shadow: 0px 20px 50px 15px grey;
 }
-
-/******************************************/
-
-/* Position the image container (needed to position the left and right arrows) */
 #galerija {
-
+padding: 5vw;
  background-color: #333;
 }
-
-/* Hide the images by default */
-.slajd {
-  display: none;
-}
-.hiden {
+.slajd,.hiden {
   display: none;
 }
 .headPhoto{
   position: relative;
 }
-/* Add a pointer when hovering over the thumbnail images */
 .cursor {
   cursor: pointer;
 }
 .cnt{
   border:3px solid white;
 }
-/* Next & previous buttons */
 .prethodna,
 .sledeca {
   cursor: pointer;
@@ -477,7 +464,6 @@ left:0;
   right: 0vw;
 }
 .prethodna i{border-radius: 1px solid;}
-/* On hover, add a black background color with a little bit see-through */
 .prethodna:hover,
 .sledeca:hover {
   color:#000;
@@ -485,19 +471,14 @@ left:0;
 #galerija .row {
 background-color:#333;
 }
-
 #galerija .row:after {
   display: table;
   clear: both;
   padding: 0vw 10vw;
 }
-
-
-/* Add a transparency effect for thumnbail images */
 .demo {
   opacity: 0.7;
 }
-
 .active,
 .demo:hover {
   opacity: 1;
@@ -509,17 +490,22 @@ background-color:#333;
 .greska{
   white-space: nowrap ;
 }
-
 #korisniLinkovi,#navigacijaDole{
   font-size: 2.5vw;
   margin-bottom: 10%;
   margin-top: 15%;
   padding-left: 5%;
 }
-#navigacijaDole ul {align-items: flex-start;}
 #futer{
   background-image: url('../img/bg2\ -\ Copy.jpg');
 }
 #futer span{
   font-size: 1.5vw;
+}
+.linkDugme{
+  padding: 1vw;
+  background-color: rgb(154,200,32);
+}
+#opisAutora{
+  margin: 5vw;
 }
