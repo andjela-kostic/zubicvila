@@ -11,17 +11,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="distr/imgslider.min.css">
   <title>Stomatološka ordinacija - Zubić vila</title>
-  <link rel="icon" href="img/icon.png"/>
+  <link rel="icon" href="img/logo.jpg"/>
 </head>
-<body>  
+<body>
 <!---Navigacija--->
-  <div id="Burger"></div>
-  <nav class="container-fluid" id="navigacija">       
-     <div class="navigationBar site-navbar banner" id="navigacijaMeni"></div>
-  </nav>
+    <nav class="d-flex justify-content-between" id="navigacija"> 
+      <div id="Burger"></div>
+      <div class="navigationBar site-navbar banner" id="navigacijaMeni"></div>
+      <div id="logo">
+        <a href="index.html" target="_self"><img src="img/logo.jpg" alt="logo" class="img-fluid"></a>
+       </div>      
+   </nav>
 <!---Header--->
-  <header class="container-fluid"> 
+  <header class="container-fluid">
+    <div id="zaglavlje">    
+    </div>
     <div id="imeO" class="row" >
       <h2 id="hP"class="">stomatološka ordinacija</br></br><span id="ZV"> ZUBIĆ VILA</span></h2>
     </div>   
@@ -35,8 +41,8 @@
     <div class="row" id="vraper">
     </div>
 <!--Deo o nama-->
-    <div id="oNama" class="row justify-content-md-center p-5">
-      <div class="col-md-6">
+    <div id="oNama" class="row justify-content-md-center">
+      <div class="col-md-6 p-5">
         <h2 class="col-md-12  text-left">Dobrodošli na sajt stomatološke ordinacije ZUBIĆ VILA</h2>
         <div class="col-md-12 about-text text-center">
           <p class="text-left my-4">U svom novouređenom, ugodnom prostoru svakom pojedincu pružamo celovitu, kvalitetnu i brzu uslugu te detaljnu i stručnu brigu za zdravlje i lepotu zuba. Individualnim i neposrednim pristupom u vrlo ugodnoj atmosferi podstičemo otvoren dijalog o razlozima posete našoj stomatološkoj ordinaciji.<span id="dots">...</span><span id="more"> Garantujemo vrlo precizno otkrivanje uzroka nezadovoljstva vlastitim osmehom. U svom radu s pacijentima zadržavamo najviši profesionalni standard, beskompromisno poštujući pravila struke. Isto tako koristimo najkvalitetnije i najsigurnije proverene materijale i najmoderniju, visokokvalitetnu opremu renomiranih svetskih proizvođača. Radno mesto, stomatološka stolica sa svim nasadnim instrumentima i pratećom opremom je od nemačkog proizvođača KaVo najnovije generacije. Neprestano ulažemo u naše znanje,veštine i opremu te idemo u korak sa savremenom stomatologijom kako bi našim pacijentima omogućili što bolje i kvalitetnije usluge.
@@ -44,16 +50,31 @@
           <button onclick="myFunction()" id="myBtn" class="btn btn-dark p-3">Pročitaj više</button>
         </div>
       </div>
-      <div class="col-md-6 ">
-        <img src="img/1.jpg" id="zzubi" class="img-fluid mt-5 rounded mx-auto d-block"alt="zuti zubi"/>
-        <p id="opis" class="text-center"><b>Trenutno na akciji - izbeljivanje zuba</b></p>
+      <div class="col-md-6 p-5">
+        <div id="akcijskaKartica">
+          <p id="opis" class="text-center"><b>TOP PONUDA</b></p>
+          <div class="slider  " id="slider">
+            <div class="slider responsive">         
+              <div class="left image">      
+                <img src="img/2.jpg" alt="zubi pre izbeljivanja"/>        
+              </div>       
+              <div class="right image">        
+                <img src="img/1.jpg" alt="zubi nakon izbeljivanja"/>         
+              </div>        
+            </div>        
+         </div>
+          <p class="h5 p-1 font-weight-bold">Izbeljivanje zuba</p>
+          <p>15.000 rsd.</p>
+          <strike><b>23.000 rsd.</b></strike>
+          <div id="Vreme"></div>
+        </div>
       </div>
     </div>   
   </div>  
 <!---Galerija--->
   <div id="okvir" class="container-fluid p-3">
     <h3 class="text-center">Naša ordinacija</h3>  
-    <div id="galerija" class="pb-5">
+    <div id="galerija" class="row p-5">
     </div>
   </div>
 <!---Nas tim--->
@@ -69,32 +90,62 @@
       <a href="#kontaktirajteNas"><input type="button" id="dugmeZ" name="zakazi" value="Zakažite"/></a>
   </div>
 </div>
-<!--Pitanja pacijenata-->
-  <div id="accordionDiv" class="container">
-  </div>
-<!---Cenovnik i komentari--->
-  <div id="cenIkom" class="container-fluid row">
-    <div id="cenovnik" class="col-md-6 col-12">
+<!--Pitanja pacijenata i cenovnik -->
+<div class="container-fluid poz">
+  <div class="row">
+    <div class="col-sm-5 col-1"></div>
+    <div id="accordionDiv" class="col-sm-6 col-10 pt-4"></div> 
+    <div id="cenovnik" class="col-sm-7 col-10 px-5 pb-5">
     </div>
-    <div id="komentari" class="col-md-6 col-12 ">
+  </div> 
+</div>
+<!--- komentari--->
+  <div class="container-fluid"> 
+    <h3 class="text-center">Utisci naših pacijenata</h3>
+    <div id="komentari" class="col-sm-7 col-12">
     </div>
   </div>
 <!--Kontakt Forma-->
-  <div class=" container-fluid kontaktirajteNas " id='kontaktirajteNas'>
+<div class="container-fluid bcg">
+  <div class="row">
+    <div class="col-sm-6 col-12 kontaktirajteNas" id="kontaktirajteNas">
+      <h3 class="m-4">Pišite nam</h3>
+      <form action="index.html" method="POST" class="col-md-8 col-11">
+        <input type="text" placeholder="Vaše ime" class="popuniSirinu" id="ime" name="name">
+          <p class="greska" id="greskaNaImenu">Niste pravilno uneli ime (prvo slovo mora biti veliko).</p>
+        <input type="text" placeholder="Vaše prezime" class="popuniSirinu" id="prezime" name="surname">
+          <p class="greska" id="greskaNaPrezimenu">Niste pravilno uneli prezime (prvo slovo mora biti veliko).</p>
+        <input type="email" placeholder="Vaš e-mail" class="popuniSirinu" id="mejl" name="mail">
+          <p class="greska" id="greskaNaMejlu">Niste uneli Vaš e-mail u pravilnom formatu.</p>
+        <textarea class="popuniSirinu" name="txtArea" placeholder="Vaša poruka" id="txtArea" cols="30" rows="6"></textarea>
+          <p class="greska" id="greskaNaTekstPoruka">Niste ništa uneli.</p>
+        <input type="submit" value="Pošalji" id="posaljiPodatke">
+          <p id="nijeGreska">Vaša poruka je poslata !<br>Javićemo Vam se uskoro.</p>
+      </form>
+    </div>
+    <div class="col-sm-3 col-6" id="navigacijaDole"></div>
+    <div class="col-sm-3 col-6" id="korisniLinkovi"></div>
   </div>
+</div>
+<!---Opet vraper-->
   <div class="container-fluid">
     <div class="row" id="vraper1">
     </div>
   </div>
 <!---Futer--->
-  <footer class="d-flex justify-content-around p-4" id="futer">
+  <footer class="d-flex justify-content-around p-3" id="futer">
+    <span><b>Copyright © 2021 All Rights Reserved.</b></span>
   </footer>
-
     <button onclick="topFunction()" id="myBtnn" title="Go to top">Vrh</button>
-    <script src="js/jquery-3.5.1.min.js"></script> 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/main1.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    
+    <script type="text/javascript" src="distr/imgslider.min.js"></script>
+    <script type="text/javascript"  >
+        $(document).ready(function(){
+          $('#slider').slider({initialPosition: 0.2});
+          $('.slider').slider({ instructionText:"Prevuci" });
+        });
+    </script>
 </body>
 </html>

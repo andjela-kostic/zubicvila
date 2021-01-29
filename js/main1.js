@@ -44,10 +44,12 @@ function topFunction() {
     sledeciElement.addClass("aktivna");
     trenutniElement.removeClass("aktivna");
     console.log(trenutniElement);
-    setTimeout(slideShow, 2000);
+    setTimeout(slideShow, 4500);
   }
 
    function izvrsiAkordion(){
+    var hvatacAkordiona=`<h3 class="text-center">Najčešća pitanja pacijenata</h3>`
+                          
     for(let i=0;i<pitanjaPacijenata.length;i++){
       hvatacAkordiona+=`<div class="accordion">
                           <div class="head d-flex justify-content-between">
@@ -62,6 +64,7 @@ function topFunction() {
       `
       console.log(hvatacAkordiona)
     }
+
     akordion.innerHTML=hvatacAkordiona;
     $('.head').click(function(){
       $(this).toggleClass('active');
@@ -69,19 +72,3 @@ function topFunction() {
       $(this).parent().find('.content').slideToggle(280);
     });
 }
-
-function futer(){
-    var futer=document.getElementById("futer");
-    var sadrzajFutera=["Sitemap","Autor","Dokumentacija"];
-    var adresaSadrzaja=["sitemap.xml","autor.html","Documentation.pdf"];
-    var hvatacFutera='';
-    
-    for(let i=0;i<sadrzajFutera.length;i++){
-      hvatacFutera+=`
-                    <div>
-                      <a class="linkFutera" href="${adresaSadrzaja[i]}" target="_blank">${sadrzajFutera[i]}</a>
-                    </div>
-                  `
-    }
-    futer.innerHTML=hvatacFutera;
-    }
