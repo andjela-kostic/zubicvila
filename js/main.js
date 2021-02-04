@@ -20,8 +20,8 @@ var le= document.getElementById("naslov");
 
 var navigate=document.getElementById("navigacijaMeni");
 var burger=document.getElementById("Burger");
-var navNiz=["O nama","Galerija","Naš tim","Cenovnik","Kontakt","Autor"];
-var linkovi=["#oNama","#okvir","#nasTim","#cenovnik","#kontaktirajteNas","#divAutor"]
+var navNiz=["O nama","Galerija","Naš tim","Cenovnik","Kontakt"];
+var linkovi=["#oNama","#okvir","#nasTim","#cenovnik","#kontaktirajteNas"]
 
 var hvBurger=`
                 <i class="fa fa-bars" ></i>
@@ -29,14 +29,20 @@ var hvBurger=`
   for(let i=0;i<navNiz.length;i++){               
          hvBurger+=`<li><a href="${linkovi[i]}" class="gl" target="_self">${navNiz[i]}</a></li>`
   }
-  hvBurger+=` </ul>`
+  hvBurger+=`
+    <li><span id="autorBurger" class="autor" onclick="prikazAutora()">Autor</span></li>
+   </ul>`
 burger.innerHTML=hvBurger;
+
+
 
 var navBar=` <ul class="text-center">`;
 for(let i=0;i<navNiz.length;i++){
     navBar+=`<li><a href="${linkovi[i]}" target="_self">${navNiz[i]}</a></li>`;
 }
-navBar+=`</ul>`
+navBar+=`
+    <li><span id="autorMeni" class="autor" onclick="prikazAutora()">Autor</span></li>
+  </ul>`
 navigate.innerHTML=navBar;
 
 var linkoviDole=document.getElementById("navigacijaDole");
@@ -45,7 +51,8 @@ var linkZaDole=`<h4 class="py-3"><b>Navigacija</b></h4>`
 for(let i=0;i<navNiz.length;i++){
   linkZaDole+=`<div><a href="${linkovi[i]}" target="_self">${navNiz[i]}</a></div>`;
 }
-linkZaDole+=`</ul>`
+linkZaDole+=`
+    <div><span id="autorDole" class="autor" onclick="prikazAutora()">Autor</span></div>`
 linkoviDole.innerHTML=linkZaDole;
 
 function prikazBurgera(){
@@ -132,7 +139,10 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
-
+/*var dugmeForme=document.getElementById("posaljiPodatke")
+dugmeForme.addEventListener("onsubmit",function(){
+  proveriFormu();
+});*/
  function proveriFormu(e){
   e.preventDefault();
   var tacnostForme = true;
@@ -146,22 +156,29 @@ function scrollFunction() {
   var tekstPorukaGr = document.getElementById('greskaNaTekstPoruka');
   var regularniIme = /^[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}(\s[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}){0,1}$/;
   var regularniPrezime = /^[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}(\s[A-ZČĆŠĐŽ][a-zčćžđš]{2,15}){0,1}$/;
-  var regularniMejl = /^[a-zčćžđš][a-z\d\-\.\wčćžđš]+\@[a-z]+(\.[a-z]{2,12}){1,2}$/
+  var regularniMejl = /^[a-z][a-z_\.0-9]+@([a-z0-9]{3,7}\.){1,3}[a-z]{2,3}$/;
   var regularniMessage = /.{4,200}/;
   var greska=4;
+  
   function pokaziGresku(promenljiva, izraz, idPoruke){
-  if(greska==4){
-      document.getElementById("nijeGreska").style.visibility = 'hidden'
+    if(greska==4){
+        document.getElementById("nijeGreska").style.visibility = 'hidden'
+      }
+    if (!izraz.test(promenljiva)){
+      tacnostForme = false;
+      idPoruke.style.visibility = 'visible';
     }
-  if (!izraz.test(promenljiva)){
-    tacnostForme = false;
-    idPoruke.style.visibility = 'visible';
-  }
-  else {
-  idPoruke.style.visibility = 'hidden';
-  greska--;
-    if(greska==0){
-    document.getElementById("nijeGreska").style.visibility = 'visible';
+    else {
+      idPoruke.style.visibility = 'hidden';
+      greska--;
+      if(greska==0){
+        document.getElementById("nijeGreska").style.visibility = 'visible';
+        document.getElementById('ime').value="";
+        document.getElementById('prezime').value="";
+        document.getElementById('mejl').value="";
+        document.getElementById('txtArea').value="";
+
+        
       }
     }
   }
@@ -292,6 +309,7 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 
   hidn[slideIndex-1].style.display = "block";
+  hidn[slideIndex-1].className += " fadeIn";
 }
 
 var korisniLinkovi=["Sitemap","Dokumentacija"];
@@ -331,3 +349,21 @@ for(let i=0;i<linkovi.length;i++){
     `
 }
 profil.innerHTML=hvatacProfil;
+
+
+/*document.getElementsByClassName("autor").setAttribute('onclick','funkcija()');
+console.log(autor);
+console.log(document.getElementById("modal"));
+function funkcija(){
+  console.log(document.getElementById("modal"));
+  document.getElementsByTagName("section").classList.remove("d-none");
+  document.getElementsByTagName("section").classList.add("d-flex");
+  console.log(document.getElementById("modal"));}*/
+
+function prikazAutora(){
+    document.getElementById("modal").style.display="flex";
+}
+
+function  zatvori(){
+  document.getElementById("modal").style.display="none";
+}

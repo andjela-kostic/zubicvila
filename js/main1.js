@@ -37,13 +37,13 @@ function topFunction() {
   function slideShow(){
 
     var trenutniElement = $("#slajder .aktivna");
-     console.log(trenutniElement);
+     
   
     var sledeciElement = trenutniElement.next().length ? trenutniElement.next() : trenutniElement.parent().children(':first');
-    console.log(sledeciElement);
+    
     sledeciElement.addClass("aktivna");
     trenutniElement.removeClass("aktivna");
-    console.log(trenutniElement);
+   
     setTimeout(slideShow, 4500);
   }
 
@@ -62,7 +62,7 @@ function topFunction() {
                         </div>
                       <br>              
       `
-      console.log(hvatacAkordiona)
+     
     }
 
     akordion.innerHTML=hvatacAkordiona;
