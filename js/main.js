@@ -5,18 +5,11 @@ $(document).ready( function(){
   izracunajDane()
   Ispis(document.getElementById('vraper'));
   Ispis(document.getElementById('vraper1'));
-  slideShow();
   izvrsiAkordion();
   $('#posaljiPodatke').click(proveriFormu)
- }); 
- function zebraStil(){
-  $('table tbody tr:even').addClass('boja')
-  $('table tbody tr').hover(
-    function(){$(this).addClass('zebra')},
-    function(){$(this).removeClass('zebra')}
-  )};
-var el = document.getElementById("naslov");
-var le= document.getElementById("naslov");
+ });
+
+//Ispis navigacije 
 
 var navigate=document.getElementById("navigacijaMeni");
 var burger=document.getElementById("Burger");
@@ -33,8 +26,6 @@ var hvBurger=`
     <li><span id="autorBurger" class="autor" onclick="prikazAutora()">Autor</span></li>
    </ul>`
 burger.innerHTML=hvBurger;
-
-
 
 var navBar=` <ul class="text-center">`;
 for(let i=0;i<navNiz.length;i++){
@@ -55,6 +46,8 @@ linkZaDole+=`
     <div><span id="autorDole" class="autor" onclick="prikazAutora()">Autor</span></div>`
 linkoviDole.innerHTML=linkZaDole;
 
+//Prikaz navigacije na manjim uredjajima
+
 function prikazBurgera(){
 $('#Burger ul').hide();
 $('#Burger').click(function(){
@@ -63,22 +56,80 @@ $('#Burger').click(function(){
 
 var mybutton = document.getElementById("myBtnn");
 
+//Ispis trake sa informacijama o kontaktu, radnom vremenu i adresi
+
 var ikonice=["fa fa-phone",	"fa fa-clock-o","fa fa-envelope","fa fa-map-marker"];
 var sadrzaj=["060 939156","PON-PET: 08-20","zubicvila@gmail.com","Zdravka Čelara 16, </br>Beograd"];
 
-var slike=["naslovna.jpg","naslovna1.jpg","naslovna2.jpg"]
+function Ispis(x){
+  var beleska='';
+  for(let i=0;i<ikonice.length;i++){
+    beleska+=`
+      <div class="col-xl-3  col-sm-6  text-center p-2 text-responsive" >
+        <i class="${ikonice[i]} m-3"></i>
+        <p class="font-weight-bold">${sadrzaj[i]}</p>
+      </div>
+    `;
+    x.innerHTML=beleska;
+  }
+}
+
+//Ispis i funkcionalnost header-a
+
+var slike=["naslovna1.jpg","naslovna.jpg","naslovna2.jpg"]
 var Galerijaa=document.getElementById("zaglavlje");
 var Galerija='';
 
 for(let i=0;i<1;i++){
    Galerija+=`<div id="slajder">
-                  <img src="img/${slike[i]}" class="aktivna img-fluid" alt="naslovna fotografija"/>`
+                  <img src="img/${slike[i]}" class="aktivna img-fluid" alt="naslovna fotografija web sajta stomatološke ordinacije Zubić Vila"/>`
   for(let j=1;j<slike.length;j++){
-      Galerija+=`<img src="img/${slike[j]}"  class="img-fluid" alt="naslovna fotografija"/>`         
+      Galerija+=`<img src="img/${slike[j]}"  class="img-fluid" alt="naslovna fotografija web sajta stomatološke ordinacije Zubić Vila"/>`         
   }
   Galerija+=`</div>`
 }
 Galerijaa.innerHTML=Galerija;
+
+var el = document.getElementById("naslov");
+var le= document.getElementById("naslov");
+
+window.onload=function(){
+  slideShow()
+  setInterval(function(){
+    el.innerHTML="ZUBI SU OGLEDALO VAŠEG ZDRAVLJA"
+  },4500);
+  setInterval(function(){
+    el.innerHTML="ZATO VODITE RAČUNA O NJIMA"
+  },9000); 
+}
+
+function slideShow(){
+  var trenutniElement = $("#slajder .aktivna");
+  var sledeciElement = trenutniElement.next().length ? trenutniElement.next() : trenutniElement.parent().children(':first');
+  sledeciElement.addClass("aktivna");
+  trenutniElement.removeClass("aktivna");
+  setTimeout(slideShow, 4500);
+}
+
+//Funkcionalnost dugmeta za prikazivanje vise teksta
+
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Pročitaj više";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Pročitaj manje";
+    moreText.style.display = "inline";
+  }
+}
+
+//Ispis doktora
 
 var doktori=['img/dr1.jpg','img/dr2.jpg','img/dr3.jpg','img/dr4.jpg'];
 var imena=["Slavica Jovanović","Marija Ilić","Marko Simonović","Milutin Ramić"];
@@ -96,10 +147,38 @@ sakupljac+=`<div class="card col-lg-2 col-sm-5 col-8 m-2">
 }
 skladiste.innerHTML=sakupljac;
 
+//Ispis i funkcionalnost akordiona sa najcescim pitanjima pacijenata
+
 var pitanjaPacijenata=["Zašto zub boli?","Zašto krvare desni?","Šta je paradontopatija i kako se leči?","Šta dovodi do karijesa?","Zašto zub boli na hladno, toplo, slatko, pritisak?","Da li su crne plombe jače od belih?","Zašto smo baš mi najbolji izbor za vas?"];
 var odgovoriDoktora=["Uzroci zubobolje su mnogobrojni. Najčešće su to stare plombe, neprepoznat karijes ispod kontaktne tačke dva zuba i ogoljen vrat zuba prilikom povlačenja desni. Posledica svega navedenog je eksponirani dentin koji preko tubula prenosi nadražaje do pulpe pri čemu se javlja bolna senzacija.","Glavni uzrok krvarenja desni je upala desni koja je posledica skupljanja naslaga na zubima. Krvarenje desni i prisustvo parodontalnih džepova je jedan od prvih znakova parodontopatije. Redovne posete vašem stomatologu i uklanjanje kamenca i naslaga na zubima će pozitivno uticati na stanje vaših desni i zaustaviti progresiju parodontopatije.","Parodontopatija je progresivna bolest desni gde dolazi do povlačenja desni i same kosti oko korena zuba što za posledicu ima stvaranje džepova, klaćenje zuba i na kraju ispadanje. Parodontopatija se ne može izlečiti ali se njen tok može usporiti ili privremeno zaustaviti. Redovne posete i slušanje saveta stomatologa će sačuvati vaše zube.","Najčešci uzrok je dentalni plak. To su naslage na zubima koje sadrže ugljene hidrate, bakterije, i sl. Ako se zubi ne peru pravilno, doći će do nakupljanja plaka i uz prisustvo bakterija (streptokoka) dolazi do stvaranja kiselih produkata koji oštecuju gleđ zuba i tako počinje karijes.","Zub boli na hladno zbog izloženosti dentina zuba koji je zahvaćen karijesom, ili zbog povlačenja potpornog aparata zuba usled parodontopatije. Ako se bol javlja samo na nadražaj, kratkotrajan je i traje samo dok deluje nadražaj, problem se rešava čišćenjem karijesa i stavljanjem plombe.","Amalgamski (crni) ispuni ispunjavaju sve mehaničke potrebe zubnog ispuna. Ispunjavaju ih I savremeni kompozitni (beli) ispuni, koji imaju još i prednost das u apsolutno estetski. U nekim zemljama su amalgamski ispuni potpuno napušteni ne iz razloga eventualne toksičnosti žive u njima već zato što se smatraju prevaziđeni.","Ordinaciju Zubic Vila čini tim stručnjaka specijalizovanih za sve grane stomatologije (oralne hirurgije, stomatološke protetike, endodoncije, parodontologije, implantologije, dečije i preventivne stomatologije). Savremenim pristupom lečenja i korišćenjem najmodernijh materijala postizemo najbolje moguće rezultate. U prilog tome govori i 20 godina radnog iskustva iza nas."];
 var akordion=document.getElementById("accordionDiv");
 
+function izvrsiAkordion(){
+  var hvatacAkordiona=`<h3 class="text-center">Najčešća pitanja pacijenata</h3>`
+                        
+  for(let i=0;i<pitanjaPacijenata.length;i++){
+    hvatacAkordiona+=`<div class="accordion">
+                        <div class="head d-flex justify-content-between">
+                          <h2>${i+1}. ${pitanjaPacijenata[i]}</h2>
+                          <i class="fa fa-arrow-right arrow"></i>
+                        </div>
+                        <div class="content">
+                          <p> ${odgovoriDoktora[i]}</p>
+                        </div>
+                      </div>
+                    <br>              
+    ` 
+  }
+
+  akordion.innerHTML=hvatacAkordiona;
+  $('.head').click(function(){
+    $(this).toggleClass('active');
+    $(this).parent().find('.arrow').toggleClass('arrow-animate');
+    $(this).parent().find('.content').slideToggle(280);
+  });
+}
+
+//Ispis cenovnika i zebra stil tabele
 
 var usluge=["Stomatološki pregled","Prva pomoć","Kompozitni ispun","Terapija dubokog karijesa","Vitalna ekstirpacija","Lečenje gangrene (1 seansa)","Helio nadogradnja","Izbeljivanje zuba laserom BIOLASE","Izbeljivanje avitalnog zuba","Izbeljivanje zuba trejom (kućna varijanta)","Izbeljivanje u ordinaciji","Rutinsko vađenje zuba","Komplikovano vađenje zuba","Implantat","Obrada parodontalnog džepa"]
 var cene=["Besplatno","1.500","3.000","1.700","2.200","1.500","5.500","35.000","6.600","10.000","23.000","2.400","6.000","64.000","1.700"]
@@ -123,26 +202,32 @@ hvatacTabele+=`   </tbody>
                 </table>`
 cenovnik.innerHTML=hvatacTabele;
 
-setInterval(function(){
-  el.innerHTML="ZUBI SU OGLEDALO VAŠEG ZDRAVLJA"
-},4500);
-setInterval(function(){
-  el.innerHTML="ZATO VODITE RAČUNA O NJIMA"
-},9000); 
+function zebraStil(){
+  $('table tbody tr:even').addClass('boja')
+  $('table tbody tr').hover(
+    function(){$(this).addClass('zebra')},
+    function(){$(this).removeClass('zebra')}
+  )};
+
+//Funkcionalnost dugmenceta za skrolovanje do vrha strane
 
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
     mybutton.style.display = "block";
   } else {
     mybutton.style.display = "none";
   }
 }
-/*var dugmeForme=document.getElementById("posaljiPodatke")
-dugmeForme.addEventListener("onsubmit",function(){
-  proveriFormu();
-});*/
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+//Regularni izrazi i provera forme
+
  function proveriFormu(e){
   e.preventDefault();
   var tacnostForme = true;
@@ -176,9 +261,7 @@ dugmeForme.addEventListener("onsubmit",function(){
         document.getElementById('ime').value="";
         document.getElementById('prezime').value="";
         document.getElementById('mejl').value="";
-        document.getElementById('txtArea').value="";
-
-        
+        document.getElementById('txtArea').value="";       
       }
     }
   }
@@ -188,6 +271,8 @@ dugmeForme.addEventListener("onsubmit",function(){
   pokaziGresku(message, regularniMessage, tekstPorukaGr)
  }
 
+ //Izracunavanje dana do kraja akcije
+
 function izracunajDane(){
 var trenutno=new Date();
 var buduce=new Date("2/15/2021");
@@ -196,6 +281,8 @@ buduce.setMinutes("00");
 var razlika=buduce-trenutno;
 document.querySelector("#Vreme").innerHTML='Preostalo je još <b>'+ Math.ceil(razlika/(1000*60*60*24)) +' </b>dana do kraja akcije.';
 }
+
+//Kreiranje elemenata i ispis komentara pacijenata
 
 var pacijenti=['PROFILE1.jpg','PROFILE2.jpg','PROFILE3.jpg','anita.png','bogdan.jpg','Ceca.jpg'];
 var altPac=['Jovana Mandić','Dragan Ilić','Goran Bosnić','Anita Đorđević','Bogdan Janković','Svetlana Ražnatović']
@@ -209,7 +296,7 @@ for(let i=0;i<pacijenti.length;i++){
   divSlikaKlijenta.setAttribute("class","text-center p-1")
   var slikaKlijenta=document.createElement("img");
   slikaKlijenta.setAttribute("src","img/"+pacijenti[i]);
-  slikaKlijenta.setAttribute("alt",altPac[i]);
+  slikaKlijenta.setAttribute("alt","Pacijent "+altPac[i]+" stomatološke ordinacije Zubić Vila");
   slikaKlijenta.setAttribute("class","pPacijenta img-fluid rounded-circle");
   var komentariP=document.createElement("p")
   komentariP.setAttribute("class","text-center p-1")
@@ -221,6 +308,8 @@ for(let i=0;i<pacijenti.length;i++){
   drzacKomentara.appendChild(komentariP);
   divKomentara.appendChild(drzacKomentara);
 } 
+
+//Kreiranje galerije
 
 var galerija=document.getElementById("galerija");
 var nizSlikaOrdinacije=["o1.jpg","o2.jpg","o3.jpg","o4.jpg","o5.jpg","ordinacija9.jpg"];
@@ -237,7 +326,7 @@ for(let i=0;i<nizSlikaOrdinacije.length;i++){
   drzeciDiv.setAttribute("class","slajd text-center")
   var slikaUDivu=document.createElement("img");
   slikaUDivu.setAttribute("src","img/"+nizSlikaOrdinacije[i]);
-  slikaUDivu.setAttribute("alt","fotografija ordinacije")
+  slikaUDivu.setAttribute("alt","fotografija ordinacije Zubić Vila")
   slikaUDivu.setAttribute("class","img-fluid cnt")
   drzeciDiv.appendChild(slikaUDivu);
   headPhoto.appendChild(drzeciDiv)
@@ -247,7 +336,7 @@ for(let i=0;i<nizSlikaOrdinacije.length;i++){
    
    var imgDemo=document.createElement("img");
    imgDemo.setAttribute("src","img/"+nizSlikaOrdinacije[i]);
-   imgDemo.setAttribute("alt","fotografija ordinacije")
+   imgDemo.setAttribute("alt","fotografija ordinacije Zubić Vila")
    imgDemo.setAttribute("class","img-fluid demo")
    imgDemo.setAttribute("onclick","trenutniSlajd("+j+")");
    kolona0.appendChild(kolona);
@@ -256,6 +345,8 @@ for(let i=0;i<nizSlikaOrdinacije.length;i++){
 }
 galerija.appendChild(headPhoto)
 galerija.appendChild(noviRed);
+
+//Funkcionalnost primenjena na galeriju i komentare pacijenata
 
 var premotavanje=["prethodna","sledeca"];
 var defaultVrednost=["-1","1"];
@@ -312,6 +403,8 @@ function showSlides(n) {
   hidn[slideIndex-1].className += " fadeIn";
 }
 
+//Ispis korisnih linkova
+
 var korisniLinkovi=["Sitemap","Dokumentacija"];
 var adresaSadrzaja=["sitemap.xml","Documentation.pdf"];
 
@@ -326,6 +419,8 @@ var hvatacKLinkova='<h4 class="py-3"><b>Korisni linkovi</b></h4>';
                   `
     }
 kLinkovi.innerHTML=hvatacKLinkova;
+
+//Ispis i funkcionalnost prikaza dela o autoru
 
 var nizPodataka=["Ime i prezime: ","Datum rođenja: ","Obrazovanje: ","Broj indeksa: "];
 var podaci=["Anđela Kostić","21.1.2001.","Visoka ICT","51/19"]
@@ -349,16 +444,6 @@ for(let i=0;i<linkovi.length;i++){
     `
 }
 profil.innerHTML=hvatacProfil;
-
-
-/*document.getElementsByClassName("autor").setAttribute('onclick','funkcija()');
-console.log(autor);
-console.log(document.getElementById("modal"));
-function funkcija(){
-  console.log(document.getElementById("modal"));
-  document.getElementsByTagName("section").classList.remove("d-none");
-  document.getElementsByTagName("section").classList.add("d-flex");
-  console.log(document.getElementById("modal"));}*/
 
 function prikazAutora(){
     document.getElementById("modal").style.display="flex";

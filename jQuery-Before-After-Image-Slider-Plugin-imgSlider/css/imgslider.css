@@ -24,7 +24,7 @@
 .slider .instruction{
 	position: absolute;
 	top:50%;
-	z-index:1000;
+	z-index:9;
 	width: 95%;
 }
 
