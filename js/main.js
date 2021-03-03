@@ -275,7 +275,7 @@ function topFunction() {
 
 function izracunajDane(){
 var trenutno=new Date();
-var buduce=new Date("2/15/2021");
+var buduce=new Date("3/20/2021");
 buduce.setHours("20");
 buduce.setMinutes("00");
 var razlika=buduce-trenutno;
